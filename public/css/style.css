@@ -1,0 +1,15 @@
+.nav-pills li a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.nav-pills li a:hover {
+    background-color: rgb(250, 204, 2);
+    color: black;
+}
+
+.sticky-sidebar {
+
+    position: sticky;
+    top: 0;
+}
