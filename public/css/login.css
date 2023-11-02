@@ -1,0 +1,96 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap");
+
+:root {
+    --font: "Montserrat", sans-serif;
+    --color-text: black;
+    --color-bg: white;
+    --border-clr1: hsla(120, 100%, 40%, 0.4);
+    --border-clr2: #0d6efd;
+}
+
+.login {
+    margin-top: 188px;
+}
+
+label {
+    font-family: var(--font);
+    transform: translateY(40px); /* Geser placeholder ke atas */
+}
+
+.custom-input {
+    font-family: var(--font);
+    width: 550px;
+    height: 55px;
+    font-size: 16px;
+    border-color: var(--border-clr1);
+}
+
+.custom-input::placeholder {
+    color: var(--color-text);
+    font-size: 16px;
+    width: 80px;
+    background-color: var(--border-clr2);
+}
+
+.custom-input:hover {
+    border-color: var(--border-clr2);
+    z-index: 1;
+}
+
+.custom-input:hover::placeholder {
+    transform: translateY(-30px); /* Geser placeholder ke atas */
+    color: var(--color-text);
+    font-size: 16px;
+    position: relative;
+    z-index: -1;
+}
+@media only screen and (max-width: 720px) {
+    .login {
+        margin-top: 188px;
+    }
+    .custom-input {
+        font-family: "Montserrat", sans-serif;
+        width: 340px;
+        height: 55px;
+        font-size: 14px;
+        border-color: hsla(120, 100%, 40%, 0.4);
+    }
+    .custom-input::placeholder {
+        color: black;
+        font-size: 14px;
+    }
+}
+
+@media only screen and (max-width: 520px) {
+    .login {
+        margin-top: 188px;
+    }
+    .custom-input {
+        font-family: "Montserrat", sans-serif;
+        width: 250px;
+        height: 55px;
+        font-size: 12px;
+        border-color: hsla(120, 100%, 40%, 0.4);
+    }
+    .custom-input::placeholder {
+        color: black;
+        font-size: 12px;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .login {
+        margin-top: 188px;
+    }
+    .custom-input {
+        font-family: "Montserrat", sans-serif;
+        width: 220px;
+        height: 55px;
+        font-size: 12px;
+        border-color: hsla(120, 100%, 40%, 0.4);
+    }
+    .custom-input::placeholder {
+        color: black;
+        font-size: 10px;
+    }
+}
