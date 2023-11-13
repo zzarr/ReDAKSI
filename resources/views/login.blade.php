@@ -4,96 +4,87 @@
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Bootstrap CSS -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="{{ asset('css/login.css') }}">
-
-    <title>{{ $title }}</title>
+    <title>Login</title>
   </head>
   <body>
-    <section class="vh-100">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-sm-6 px-0 d-none d-sm-block">
-            <img
-              src="{{ asset('img/image_school.jpg') }}"
-              alt="Login image"
-              class="w-100 vh-100 align-item-start"
-              style="object-fit: cover"
-              ;
-            />
-          </div>
-          <div class="col-sm-6 text-black">
-            <div class="container-fluid my-5">
-              <div class="logo">
-                <div class="px-5 ms-xl-4">
-                  <img src="{{ asset('img/logo2.png') }}" alt="" style="width: 14%" />
-                  <span class="h3 fw-normal mx-3 pt-5 text-uppercase"
-                    >SMP MKGR</span
-                  >
-                </div>
-              </div>
+    <div class="grid md:grid-cols-2 grid-cols-1">
+      <div class="image">
+        <img
+          src="{{ asset('img/image_school.jpg') }}"
+          alt="Login image"
+          class="hidden md:block w-full h-screen object-cover"
+        />
+      </div>
 
-              <div class="login">
-                <div
-                  class="d-flex align-items-center h-custom-2 px-5 ms-xl-4 pt-xl-0 mt-xl-n5"
-                >
-                  <form>
-                    <h2 class="fw-normal mb-4 pb-4 text-dark">Log in</h2>
+      <div class="login">
+        <div
+          class="gap-8 mt-8 md:mx-28 mx-24 columns-2 mb-24 md:mb-28 flex items-center justify-start"
+        >
+          <img src="{{ asset('img/logo2.png') }}" alt="Logo MKGR" class="w-16 lg:w-20" />
+          <span class="font-bold text-2xl lg:text-3xl">SMP MKGR</span>
+        </div>
 
-                    <div class="form-outline mb-4">
-                      <label class="mx-4 fs-6 fw-bold">Username</label>
-                      <input
-                        type="text"
-                        id="input"
-                        class="custom-input form-control form-control-lg bg-transparent text-dark"
-                      />
-                    </div>
-
-                    <div class="form-outline mb-5">
-                      <input
-                        type="password"
-                        id="input"
-                        class="custom-input form-control form-control-lg bg-transparent text-dark position-relative"
-                        placeholder="password"
-                      />
-                    </div>
-
-                    <div class="form-outline mb-4">
-                      <input
-                        type="submit"
-                        id="submit"
-                        class="custom-input form-control form-control-lg bg-primary text-white"
-                        value="LOGIN"
-                        style="letter-spacing: 2px"
-                      />
-                    </div>
-
-                    <p class="small mb-5 pb-lg-2">
-                      <a class="text-muted-primary" href="#!"
-                        >Forgot password?</a
-                      >
-                    </p>
-                  </form>
-                </div>
-              </div>
-            </div>
+        <div class="text-center">
+          <div class="text-4xl md:text-5xl font-bold">ReDAKSI</div>
+          <div class="text-sm md:text-xl font-semibold">
+            Rekap Data Akreditasi
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-      crossorigin="anonymous"
-    ></script>
+        <div class="md:mx-28 mx-24 justify-center mt-24 md:mt-28">
+          <form>
+            <h2 class="font-semibold text-xl lg:text-2xl pb-4 mb-4 text-black">
+              Login
+            </h2>
+
+            <div class="md:col-span-2 mb-2">
+              <label
+                for="username"
+                class="block text-sm md:text-base font-medium leading-6 text-black"
+                >Username</label
+              >
+              <div class="mt-2">
+                <input
+                  type="text"
+                  name="Username"
+                  id="Username"
+                  autocomplete="username"
+                  required
+                  class="block w-full px-4 rounded-md py-1.5 text-black border border-amber-300 cursor-text hover:border-blue-600 focus:border-blue-600 text-sm md:text-base sm:leading-6"
+                />
+              </div>
+            </div>
+
+            <div class="md:col-span-2 mb-8">
+              <label
+                for="first-name"
+                class="block text-sm md:text-base font-medium leading-6 text-black"
+                >Password</label
+              >
+              <div class="mt-2">
+                <input
+                  type="password"
+                  name="Password"
+                  id="Password"
+                  required
+                  class="block w-full px-4 rounded-md py-1.5 text-black border border-amber-300 cursor-text hover:border-blue-600 focus:border-blue-600 text-sm md:text-base sm:leading-6"
+                />
+              </div>
+            </div>
+
+            <div class="sm:col-span-2">
+              <input
+                type="submit"
+                id="submit"
+                class="block w-full text-white text-sm font-bold tracking-widest rounded-md py-3 bg-blue-600 cursor-pointer hover:text-base hover:py-2.5"
+                value="LOGIN"
+              />
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

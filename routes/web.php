@@ -29,3 +29,7 @@ Route::get('/Login', function () {
         ]
     );
 });
+Route::get('/add_account', function()
+{
+    return view('tambahAkun');
+});
