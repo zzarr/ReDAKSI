@@ -18,8 +18,8 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', function () {
-    return view('dashboard');
-})->name('dashboard');
+    return view('login');
+})->name('login');
 
 Route::get('/add_account', function () {
     return view('add_account');
@@ -33,4 +33,6 @@ Route::get('/arsip', function () {
     return view('arsip');
 })->name('arsip');
 
-
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
