@@ -12,7 +12,9 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
+Route::get('/', function () {
+    return view('login');
+})->name('login');
 
 
 
@@ -25,6 +27,7 @@ Route::prefix('admin')->group(function(){
         return view('admin/add_account');
     })->name('add_account');
 
+
     Route::get('/add_folder', function () {
         return view('admin/add_folder');
     })->name('add_folder');
@@ -32,10 +35,12 @@ Route::prefix('admin')->group(function(){
     Route::get('/arsip', function () {
         return view('admin/arsip');
     })->name('arsip');
+    Route::get('/list', function () {
+        return view('admin.list_arsip');
+    })->name('list');
 });
 
 Route::prefix('user')->group(function(){
     
 });
-
 

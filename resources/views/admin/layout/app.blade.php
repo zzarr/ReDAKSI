@@ -15,9 +15,8 @@
 <body class="sb-nav-fixed">
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
         <a href="/" class="d-flex align-items-center mb-lg-0 text-decoration-none mb-2 text-white">
-            <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
-                <use xlink:href="#bootstrap"></use>
-            </svg>
+            <img src="{{ asset('img/Logo2.png') }}" alt="" srcset="" width="40px" height="40px"
+                class="mx-3">
         </a>
         <!-- Navbar Brand-->
         <a class="navbar-brand ps-3" href="index.html">SMP MKGR</a>
@@ -54,9 +53,13 @@
                             <div class="sb-nav-link-icon"><i class="fa-solid fa-user-plus"></i></div>
                             Tambah akun
                         </a>
-                        <a class="nav-link" href="admin/add_folder">
+                        <a class="nav-link" href="{{ route('add_folder') }}">
                             <div class="sb-nav-link-icon"><i class="fa-solid fa-folder-plus"></i></div>
                             Tambah Arsip
+                        </a>
+                        <a class="nav-link" href="{{ route('list') }}">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-box-archive"></i></div>
+                            List Arsip
                         </a>
                         <hr class="my-4">
 
