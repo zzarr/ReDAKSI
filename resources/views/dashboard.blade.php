@@ -1,11 +1,10 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  @vite(['resources/js/app.js'])
+  @vite(['resources/scss/app.scss', 'resources/js/app.js'])
   <title>Dashboard</title>
 </head>
 
@@ -103,9 +102,7 @@
 </body>
 
 </html>
-=======
 @extends('main')
 @section('content')
 <h1>ini dashboard</h1>
 @endsection
->>>>>>> 01e614a5154846ab277b9329cd03d237202495bd
