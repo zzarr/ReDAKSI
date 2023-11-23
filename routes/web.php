@@ -16,21 +16,26 @@ use Illuminate\Support\Facades\Route;
 
 
 
+Route::prefix('admin')->group(function(){
+    Route::get('/', function () {
+        return view('admin/dashboard');
+    })->name('dashboard');
 
-Route::get('/', function () {
-    return view('dashboard');
-})->name('dashboard');
+    Route::get('/add_account', function () {
+        return view('admin/add_account');
+    })->name('add_account');
 
-Route::get('/add_account', function () {
-    return view('add_account');
-})->name('add_account');
+    Route::get('/add_folder', function () {
+        return view('admin/add_folder');
+    })->name('add_folder');
 
-Route::get('/add_folder', function () {
-    return view('add_folder');
-})->name('add_folder');
+    Route::get('/arsip', function () {
+        return view('admin/arsip');
+    })->name('arsip');
+});
 
-Route::get('/arsip', function () {
-    return view('arsip');
-})->name('arsip');
+Route::prefix('user')->group(function(){
+    
+});
 
 

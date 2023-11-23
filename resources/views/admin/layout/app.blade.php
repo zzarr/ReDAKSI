@@ -54,7 +54,7 @@
                             <div class="sb-nav-link-icon"><i class="fa-solid fa-user-plus"></i></div>
                             Tambah akun
                         </a>
-                        <a class="nav-link" href="{{ route('add_folder') }}">
+                        <a class="nav-link" href="admin/add_folder">
                             <div class="sb-nav-link-icon"><i class="fa-solid fa-folder-plus"></i></div>
                             Tambah Arsip
                         </a>
@@ -69,7 +69,7 @@
                         <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne"
                             data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="{{route('arsip')}}">kurikulum</a>
+                                <a class="nav-link" href="/arsip">kurikulum</a>
                                 <a class="nav-link" href="layout-sidenav-light.html">Sarana prasarana</a>
                             </nav>
                         </div>

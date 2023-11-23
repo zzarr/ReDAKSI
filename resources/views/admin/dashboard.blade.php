@@ -1,4 +1,4 @@
-@extends('layout.app')
+@extends('admin.layout.app')
 
 @section('content')
     <main>
@@ -8,7 +8,7 @@
                 <li class="breadcrumb-item active">Dashboard</li>
             </ol>
             <div class="row">
-                
+
             </div>
             <div class="row">
                 <div class="col-xl-6">
