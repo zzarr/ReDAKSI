@@ -12,24 +12,35 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
 Route::get('/', function () {
-    return view('welcome');
+    return view('login');
+})->name('login');
+
+
+
+Route::prefix('admin')->group(function(){
+    Route::get('/', function () {
+        return view('admin/dashboard');
+    })->name('dashboard');
+
+    Route::get('/add_account', function () {
+        return view('admin/add_account');
+    })->name('add_account');
+
+
+    Route::get('/add_folder', function () {
+        return view('admin/add_folder');
+    })->name('add_folder');
+
+    Route::get('/arsip', function () {
+        return view('admin/arsip');
+    })->name('arsip');
+    Route::get('/list', function () {
+        return view('admin.list_arsip');
+    })->name('list');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
+Route::prefix('user')->group(function(){
+    
 });
 
-Route::get('/Login', function () {
-    return view(
-        'login',
-        [
-            'title' => "Login"
-        ]
-    );
-});
-Route::get('/add_account', function()
-{
-    return view('tambahAkun');
-});
