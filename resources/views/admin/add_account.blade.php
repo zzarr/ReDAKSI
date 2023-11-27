@@ -13,12 +13,13 @@
                     Tambah Akun
                 </div>
                 <div class="card-body">
-                    <form class="needs-validation" novalidate="">
+                    <form class="needs-validation" novalidate="" action="{{ url('/add_account') }}" method="POST">
+                        @csrf
                         <div class="row g-3">
                             <div class="col-sm-6">
                                 <label for="firstName" class="form-label">First name</label>
                                 <input type="text" class="form-control" id="firstName" placeholder="" value=""
-                                    required="">
+                                    name="firstname" required="">
                                 <div class="invalid-feedback">
                                     Valid first name is required.
                                 </div>
@@ -26,7 +27,7 @@
                             <div class="col-sm-6">
                                 <label for="lastName" class="form-label">Last name</label>
                                 <input type="text" class="form-control" id="lastName" placeholder="" value=""
-                                    required="">
+                                    name="lastname" required="">
                                 <div class="invalid-feedback">
                                     Valid last name is required.
                                 </div>
@@ -37,7 +38,7 @@
                                 <div class="input-group has-validation">
                                     <span class="input-group-text">@</span>
                                     <input type="text" class="form-control" id="username" placeholder="Username"
-                                        required="">
+                                        name="username" required="">
                                     <div class="invalid-feedback">
                                         Your username is required.
                                     </div>
@@ -47,28 +48,28 @@
                             <div class="col-12">
                                 <label for="email" class="form-label">Email <span
                                         class="text-body-secondary">(Optional)</span></label>
-                                <input type="email" class="form-control" id="email" placeholder="you@example.com">
+                                <input type="email" class="form-control" id="email" placeholder="you@example.com"
+                                    name="email">
                                 <div class="invalid-feedback">
                                     Please enter a valid email address for shipping updates.
                                 </div>
                             </div>
                             <div class="col-12">
                                 <label for="password" class="form-label">Password </label>
-                                <input type="password" class="form-control" id="password">
+                                <input type="password" class="form-control" id="password" name="password">
                             </div>
                             <div class="col-12">
                                 <label for="level">Level user</label>
-                                <select class="form-select" aria-label="Default select example">
-
+                                <select class="form-select" aria-label="Default select example" name="leveluser">
                                     <option value="1">Admin</option>
                                     <option value="2">User</option>
                                 </select>
                             </div>
                             <div class="col-12">
                                 <label for="level">Jabatan</label>
-                                <select class="form-select" aria-label="Default select example">s
-
-
+                                <select class="form-select" aria-label="Default select example" name="leveluser">
+                                    <option value="1">Kurikulum</option>
+                                    <option value="2">Sarana&Prasarana</option>
                                 </select>
                             </div>
                         </div>

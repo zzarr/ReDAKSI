@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\user;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,19 +13,20 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
 Route::get('/', function () {
     return view('login');
 })->name('login');
 
+Route::get('/add_account', [user::class, 'create'])->name('add_account');
+Route::post('/add_account', [user::class, 'add'])->name('route_name');
 
-Route::prefix('admin')->group(function(){
+
+Route::prefix('admin')->group(function () {
     Route::get('/', function () {
         return view('admin/dashboard');
     })->name('dashboard');
 
-    Route::get('/add_account', function () {
-        return view('admin/add_account');
-    })->name('add_account');
 
 
     Route::get('/add_folder', function () {
@@ -39,7 +41,5 @@ Route::prefix('admin')->group(function(){
     })->name('list');
 });
 
-Route::prefix('user')->group(function(){
-    
+Route::prefix('user')->group(function () {
 });
-
