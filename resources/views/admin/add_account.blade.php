@@ -1,4 +1,4 @@
-@extends('layout.app')
+@extends('admin.layout.app')
 
 @section('content')
     <main class="m-4">
@@ -86,6 +86,6 @@
                     </form>
                 </div>
             </div>
-        </div>s
+        </div>
     </main>
 @endsection

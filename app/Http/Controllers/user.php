@@ -11,7 +11,7 @@ class user extends Controller
 {
     public function create()
     {
-        return view('add_account');
+        return view('admin/add_account');
     }
 
     public function add(Request $request)
@@ -39,7 +39,7 @@ class user extends Controller
             'updated_at' => now(),
         ]);
 
-        return redirect()->route('add_account')
+        return redirect()->route('admin/add_account')
             ->with('success', 'Akun berhasil ditambahkan.');
     }
 }
