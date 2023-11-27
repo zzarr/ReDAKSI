@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\user;
+use App\Http\Controllers\add;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,8 +18,6 @@ Route::get('/', function () {
     return view('login');
 })->name('login');
 
-Route::get('/add_account', [user::class, 'create'])->name('add_account');
-Route::post('/add_account', [user::class, 'add'])->name('route_name');
 
 
 Route::prefix('admin')->group(function () {
@@ -27,7 +25,8 @@ Route::prefix('admin')->group(function () {
         return view('admin/dashboard');
     })->name('dashboard');
 
-
+    Route::get('/add_account', [add::class, 'create'])->name('add_account');
+    Route::post('/add_account', [add::class, 'addData'])->name('add_data');
 
     Route::get('/add_folder', function () {
         return view('admin/add_folder');

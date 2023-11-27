@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('email')->nullable();
             $table->string('password');
             $table->enum('leveluser', ['admin', 'user']);
-            $table->string('jabatan');
+            $table->foreign('jabatan')->references('id')->on('jabatan');
             $table->timestamps();
         });
     }
