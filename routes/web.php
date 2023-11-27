@@ -17,7 +17,6 @@ Route::get('/', function () {
 })->name('login');
 
 
-
 Route::prefix('admin')->group(function(){
     Route::get('/', function () {
         return view('admin/dashboard');

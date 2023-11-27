@@ -59,15 +59,16 @@
                             <div class="col-12">
                                 <label for="level">Level user</label>
                                 <select class="form-select" aria-label="Default select example">
+
                                     <option value="1">Admin</option>
                                     <option value="2">User</option>
                                 </select>
                             </div>
                             <div class="col-12">
                                 <label for="level">Jabatan</label>
-                                <select class="form-select" aria-label="Default select example">
-                                    <option value="1">Kurikulum</option>
-                                    <option value="2">Sarana&Prasarana</option>
+                                <select class="form-select" aria-label="Default select example">s
+
+
                                 </select>
                             </div>
                         </div>
