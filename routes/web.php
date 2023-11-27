@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\user;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,9 +22,8 @@ Route::get('/', function () {
     return view('login');
 })->name('login');
 
-Route::get('/add_account', function () {
-    return view('add_account');
-})->name('add_account');
+Route::get('/add_account', [user::class, 'create'])->name('add_account');
+Route::post('/add_account', [user::class, 'add'])->name('route_name');
 
 Route::get('/add_folder', function () {
     return view('add_folder');
