@@ -31,9 +31,7 @@ Route::prefix('admin')->group(function () {
         return view('admin/add_folder');
     })->name('add_folder');
 
-    Route::get('/arsip', function () {
-        return view('admin/arsip');
-    })->name('arsip');
+    Route::get('/arsip', [ArsipController::class,'show'])->name('arsip');
     Route::get('/list', function () {
         return view('admin.list_arsip');
     })->name('list');
