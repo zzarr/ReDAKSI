@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\add;
+use App\Http\Controllers\ArsipController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,9 +22,7 @@ Route::get('/', function () {
 
 
 Route::prefix('admin')->group(function () {
-    Route::get('/', function () {
-        return view('admin/dashboard');
-    })->name('dashboard');
+    Route::get('/', [ArsipController::class, 'index'])->name('dashboard');
 
     Route::get('/add_account', [add::class, 'create'])->name('add_account');
     Route::post('/add_account', [add::class, 'addData'])->name('add_data');
