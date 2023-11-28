@@ -14,5 +14,7 @@ class ArsipController extends Controller
         return view('admin.dashboard');
     }
 
-    
+    public function show(){
+        return view('admin.arsip');
+    }
 }
