@@ -11,7 +11,7 @@ class user extends Controller
 {
     public function create()
     {
-        return view('admin/add_account');
+        return view('admin.add_account');
     }
 
     public function add(Request $request)

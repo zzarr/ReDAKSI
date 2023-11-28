@@ -27,8 +27,6 @@ Route::prefix('admin')->group(function () {
         return view('admin/dashboard');
     })->name('dashboard');
 
-
-
     Route::get('/add_folder', function () {
         return view('admin/add_folder');
     })->name('add_folder');
@@ -42,4 +40,6 @@ Route::prefix('admin')->group(function () {
 });
 
 Route::prefix('user')->group(function () {
+    
+
 });
