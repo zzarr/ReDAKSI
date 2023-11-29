@@ -20,7 +20,7 @@ Route::get('/', function () {
 })->name('login');
 
 Route::get('/add_account', [addController::class, 'create'])->name('add_account');
-Route::post('/add_account', [addController::class, 'addData'])->name('add_data');
+Route::post('/add_account', [addController::class, 'addData'])->name('add_account');
 
 Route::prefix('admin')->group(function () {
     Route::get('/', [ArsipController::class, 'index'])->name('dashboard');
