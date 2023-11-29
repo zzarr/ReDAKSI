@@ -22,12 +22,15 @@ Route::post('/', [loginController::class, 'getData_login'])->name('login');
 
 
 Route::prefix('admin')->group(function () {
-    Route::get('/', [ArsipController::class, 'index'])->name('dashboard');
+    Route::get('/', function(){
+        return view('admin.dashboard');
+    })->name('dashboard');
 
     Route::get('/account', [add_accountController::class, 'index'])->name('account');
     Route::get('/add_account', [add_accountController::class, 'create'])->name('add_account');
     Route::post('/add_account', [add_accountController::class, 'addData'])->name('add_account');
 
+    Route::get('/folder', [ArsipController::class,'index'])->name('folder');
     Route::get('/add_folder', function () {
         return view('admin/add_folder');
     })->name('add_folder');

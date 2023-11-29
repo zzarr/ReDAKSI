@@ -26,7 +26,7 @@
                     <table id="datatablesSimple">
                         <thead>
                             <tr>
-                                <th>Nama Arsip</th>
+                                <th>Nama Folder</th>
                                 <th>Hak Akses</th>
                                 <th>Aksi</th>
                             </tr>

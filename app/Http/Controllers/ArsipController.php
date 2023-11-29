@@ -11,11 +11,11 @@ class ArsipController extends Controller
      */
     public function index()
     {
-        return view('admin.dashboard');
+        $folderss = DB::table('folders')->get();
+        return view('admin.arsip', compact('folders'));
     }
 
     public function show(){
-        $arsips = DB::table('arsip')->get();
-        return view('admin.arsip', compact('arsips'));
+       
     }
 }
