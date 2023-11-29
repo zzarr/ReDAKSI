@@ -50,16 +50,12 @@
                             Dashboard
                         </a>
                         <a class="nav-link" href="{{ route('add_account') }}">
-                            <div class="sb-nav-link-icon"><i class="fa-solid fa-user-plus"></i></div>
-                            Tambah akun
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-user"></i></div>
+                            akun
                         </a>
                         <a class="nav-link" href="{{ route('add_folder') }}">
-                            <div class="sb-nav-link-icon"><i class="fa-solid fa-folder-plus"></i></div>
-                            Tambah Arsip
-                        </a>
-                        <a class="nav-link" href="{{ route('list') }}">
-                            <div class="sb-nav-link-icon"><i class="fa-solid fa-box-archive"></i></div>
-                            List Arsip
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-folder"></i></div>
+                            Arsip
                         </a>
                         <hr class="my-4">
 
