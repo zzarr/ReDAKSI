@@ -7,7 +7,7 @@ use Illuminate\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class addController extends Controller
+class add_accountController extends Controller
 {
     public function create()
     {
