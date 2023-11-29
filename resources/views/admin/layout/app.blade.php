@@ -53,7 +53,7 @@
                             <div class="sb-nav-link-icon"><i class="fa-solid fa-user"></i></div>
                             akun
                         </a>
-                        <a class="nav-link" href="{{ route('add_folder') }}">
+                        <a class="nav-link" href="{{ route('folder') }}">
                             <div class="sb-nav-link-icon"><i class="fa-solid fa-folder"></i></div>
                             Arsip
                         </a>

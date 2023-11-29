@@ -10,11 +10,11 @@
             </ol>
             <div class="card mb-4">
                 <div class="card-body">
-                    <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                        <button type="button" class="btn btn-outline-primary"><i
-                                class="fa-solid fa-folder-plus"></i></button>
-                        <button type="button" class="btn btn-outline-danger"></button>
-                    </div>
+                    
+                        <a type="button" class="btn btn-outline-primary"><i
+                                class="fa-solid fa-folder-plus"></i></a>
+                        
+                    
 
                 </div>
             </div>
@@ -34,18 +34,20 @@
                         <tfoot>
                             <tr>
                                 <th>Nama Arsip</th>
+                                <th>Hak Akses</th>
                                 <th>Aksi</th>
                             </tr>
                         </tfoot>
                         <tbody>
                             <tr>
-                                @foreach ($arsips as $arsip)
-                                    <td>{{ $arsip->nama_arsip }}</td>
+                                @foreach ($folders as $item)
+                                    <td>{{ $item->nama_folder }}</td>
+                                    <td>{{ $item->jabatan }}</td>
                                     <td>
-                                        <button type="button" class="btn btn-primary"><i
-                                                class="fa-solid fa-pen-to-square"></i></button>
-                                        <button type="button" class="btn btn-danger"><i
-                                                class="fa-solid fa-trash"></i></button>
+                                        <a type="button" class="btn btn-primary"><i
+                                                class="fa-solid fa-pen-to-square"></i></a>
+                                        <a type="button" class="btn btn-danger"><i
+                                                class="fa-solid fa-trash"></i></a>
                                     </td>
                                 @endforeach
                             </tr>
