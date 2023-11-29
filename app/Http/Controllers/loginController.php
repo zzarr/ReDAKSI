@@ -15,11 +15,11 @@ class loginController extends Controller
     public function getData_login(Request $request)
     {
         $request->validate([
-            'Username' => 'required|string|max:255',
-            'Password' => 'required|string|min:8',
+            'username' => 'required|string|max:255',
+            'password' => 'required|string|min:8',
         ]);
 
-        $userData = DB::table('user')->select('username', 'password', 'leveluser')->where([
+        $userData = DB::table('users')->select('username', 'password', 'leveluser')->where([
             'username' => $request->input('Username'),
         ])->first();
 
@@ -28,7 +28,7 @@ class loginController extends Controller
             if (password_verify($request->input('Password'), $userData->password)) {
                 // Password cocok, lakukan redirect atau tindakan sesuai dengan user role
                 if ($userData->leveluser == 'admin') {
-                    return redirect()->route('admin.dashboard');
+                    return redirect()->route('dashboard');
                 } elseif ($userData->leveluser == 'user') {
                     return redirect()->route('user.dashboard');
                 }

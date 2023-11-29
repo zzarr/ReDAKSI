@@ -49,7 +49,7 @@
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Dashboard
                         </a>
-                        <a class="nav-link" href="{{ route('add_account') }}">
+                        <a class="nav-link" href="{{ route('account') }}">
                             <div class="sb-nav-link-icon"><i class="fa-solid fa-user"></i></div>
                             akun
                         </a>

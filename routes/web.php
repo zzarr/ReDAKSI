@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\add_accountController;
 use App\Http\Controllers\addController;
 use App\Http\Controllers\ArsipController;
 use App\Http\Controllers\loginController;
@@ -17,15 +18,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [loginController::class, 'login'])->name('login');
-Route::post('/', [loginController::class, 'getData_login'])->name('post_login');
+Route::post('/', [loginController::class, 'getData_login'])->name('login');
 
-Route::get('/add_account', [addController::class, 'create'])->name('add_account');
-Route::post('/add_account', [addController::class, 'addData'])->name('add_account');
 
 Route::prefix('admin')->group(function () {
     Route::get('/', [ArsipController::class, 'index'])->name('dashboard');
 
-
+    Route::get('/account', [add_accountController::class, 'index'])->name('account');
+    Route::get('/add_account', [add_accountController::class, 'create'])->name('add_account');
+    Route::post('/add_account', [add_accountController::class, 'addData'])->name('add_account');
 
     Route::get('/add_folder', function () {
         return view('admin/add_folder');
