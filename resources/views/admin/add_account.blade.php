@@ -68,8 +68,9 @@
                             <div class="col-12">
                                 <label for="level">Jabatan</label>
                                 <select class="form-select" aria-label="Default select example" name="jabatan">
-                                    <option value="kurikulum">Kurikulum</option>
-                                    <option value="2">Sarana&Prasarana</option>
+                                    @foreach ($jabatan as $item)
+                                        <option value="{{ $item->id }}">{{ $item->jabatan }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>

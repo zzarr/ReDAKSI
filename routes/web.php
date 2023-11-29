@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\add;
+use App\Http\Controllers\addController;
 use App\Http\Controllers\ArsipController;
 use Illuminate\Support\Facades\Route;
 
