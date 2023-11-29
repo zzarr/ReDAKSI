@@ -16,7 +16,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', ['loginController@login'])->name('login');
+Route::get('/', [loginController::class, 'login'])->name('login');
+Route::post('/', [loginController::class, 'getData_login'])->name('post_login');
 
 Route::get('/add_account', [addController::class, 'create'])->name('add_account');
 Route::post('/add_account', [addController::class, 'addData'])->name('add_account');
