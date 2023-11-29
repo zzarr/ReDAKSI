@@ -7,7 +7,7 @@ use Illuminate\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class add extends Controller
+class addController extends Controller
 {
     public function create()
     {

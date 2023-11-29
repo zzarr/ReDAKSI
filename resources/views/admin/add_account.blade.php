@@ -13,7 +13,7 @@
                     Tambah Akun
                 </div>
                 <div class="card-body">
-                    <form class="needs-validation" novalidate="" action="{{ route('add_account') }}" method="POST">
+                    <form class="needs-validation" novalidate="" action="{{ route('add_data') }}" method="POST">
                         @csrf
                         <div class="row g-3">
                             <div class="col-sm-6">
