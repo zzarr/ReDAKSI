@@ -13,7 +13,7 @@
                     Tambah Akun
                 </div>
                 <div class="card-body">
-                    <form class="needs-validation" novalidate="" action="{{ route('add_account') }}" method="POST">
+                    <form class="needs-validation" novalidate="" action="{{ route('add_data') }}" method="POST">
                         @csrf
                         <div class="row g-3">
                             <div class="col-sm-6">
@@ -68,8 +68,9 @@
                             <div class="col-12">
                                 <label for="level">Jabatan</label>
                                 <select class="form-select" aria-label="Default select example" name="jabatan">
-                                    <option value="kurikulum">Kurikulum</option>
-                                    <option value="2">Sarana&Prasarana</option>
+                                    @foreach ($jabatan as $item)
+                                        <option value="{{ $item->id }}">{{ $item->jabatan }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>

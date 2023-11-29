@@ -7,11 +7,12 @@ use Illuminate\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class add extends Controller
+class addController extends Controller
 {
     public function create()
     {
-        return view('admin/add_account');
+        $jabatan = DB::table('jabatan')->get();
+        return view('admin/add_account', compact('jabatan'));
     }
 
     public function addData(Request $request)
@@ -19,7 +20,7 @@ class add extends Controller
         $request->validate([
             'firstName' => 'required|string|max:255',
             'lastName' => 'required|string|max:255',
-            'email' => 'nullable|email|unique:users|max:255',
+            'email' => 'required|string|max:255',
             'password' => 'required|string|min:8',
             'leveluser' => 'required|in:admin,user',
             'jabatan' => 'required',
@@ -29,12 +30,12 @@ class add extends Controller
         $fullName = $request->input('firstName') . ' ' . $request->input('lastName');
 
         // Menggunakan Query Builder untuk menyimpan data ke database
-        DB::table('user')->insert([
+        DB::table('users')->insert([
             'name' => $fullName,
             'email' => $request->input('email'),
             'password' => bcrypt($request->input('password')),
             'leveluser' => $request->input('leveluser'),
-            'jabatan' => $request->input('jabatan'),
+            'id_jabatan' => $request->input('jabatan'),
             'created_at' => now(),
             'updated_at' => now(),
         ]);

@@ -11,14 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('arsip', function (Blueprint $table) {
             $table->id();
-            $table->string('nama');
-            $table->string('password');
-            $table->string('jabatan');
-            $table->string('level');
-            $table->foreign('jabatan')->references('id')->on('jabatan');
-            $table->foreign('level')->references('id')->on('level');
+            $table->string('nama_arsip');
             $table->timestamps();
         });
     }
@@ -28,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('arsip');
     }
 };

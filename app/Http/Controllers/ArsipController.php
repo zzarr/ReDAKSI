@@ -14,5 +14,8 @@ class ArsipController extends Controller
         return view('admin.dashboard');
     }
 
-    
+    public function show(){
+        $arsips = DB::table('arsip')->get();
+        return view('admin.arsip', compact('arsips'));
+    }
 }
