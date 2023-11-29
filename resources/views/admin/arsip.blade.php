@@ -27,6 +27,7 @@
                         <thead>
                             <tr>
                                 <th>Nama Arsip</th>
+                                <th>Hak Akses</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
