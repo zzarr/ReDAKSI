@@ -31,15 +31,11 @@ Route::prefix('admin')->group(function () {
     Route::post('/add_account', [add_accountController::class, 'addData'])->name('add_account');
 
     Route::get('/folder', [ArsipController::class,'index'])->name('folder');
-    Route::get('/add_folder', function () {
-        return view('admin/add_folder');
-    })->name('add_folder');
+    Route::get('/add_folder', [ArsipController::class, 'add_arsip'])->name('add_folder');
 
-    Route::get('/arsip', [ArsipController::class, 'show'])->name('arsip');
     
-    Route::get('/list', function () {
-        return view('admin.list_arsip');
-    })->name('list');
+    
+    
 });
 
 Route::prefix('user')->group(function () {

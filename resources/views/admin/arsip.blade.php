@@ -10,11 +10,11 @@
             </ol>
             <div class="card mb-4">
                 <div class="card-body">
-                    
-                        <a type="button" class="btn btn-outline-primary"><i
-                                class="fa-solid fa-folder-plus"></i></a>
-                        
-                    
+
+                    <a type="button" href="{{ route('add_folder') }}" class="btn btn-outline-primary"><i
+                            class="fa-solid fa-folder-plus"></i></a>
+
+
 
                 </div>
             </div>
@@ -46,8 +46,7 @@
                                     <td>
                                         <a type="button" class="btn btn-primary"><i
                                                 class="fa-solid fa-pen-to-square"></i></a>
-                                        <a type="button" class="btn btn-danger"><i
-                                                class="fa-solid fa-trash"></i></a>
+                                        <a type="button" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
                                     </td>
                                 @endforeach
                             </tr>
