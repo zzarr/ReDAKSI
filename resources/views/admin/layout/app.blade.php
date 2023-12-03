@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('DataTables-1.13.4/css/jquery.dataTables.min.css') }}">
     @vite(['resources/js/app.js'])
-    <title></title>
+    <title>{{ isset($webtitle) ? $webtitle : 'ReDAKSI' }}</title>
 </head>
 
 <body class="sb-nav-fixed">
@@ -45,15 +45,18 @@
                 <div class="sb-sidenav-menu">
                     <div class="nav p-2">
                         <div class="sb-sidenav-menu-heading">Core</div>
-                        <a class="nav-link btn btn-outline-warning" href="index.html">
-                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                        <a class="nav-link {{ $webtitle == 'dashboard' ? 'active bg-warning ' : 'btn btn-outline-warning' }} mt-2 rounded"
+                            href="{{ route('dashboard') }}">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-gauge-high"></i></div>
                             Dashboard
                         </a>
-                        <a class="nav-link" href="{{ route('account') }}">
+                        <a class="nav-link {{ $webtitle == 'Accoun' ? 'bg-warning text-black' : 'btn btn-outline-warning' }} mt-2 rounded"
+                            href="{{ route('account') }}">
                             <div class="sb-nav-link-icon"><i class="fa-solid fa-user"></i></div>
                             akun
                         </a>
-                        <a class="nav-link" href="{{ route('folder') }}">
+                        <a class="nav-link {{ $webtitle == 'Arsip' ? 'active bg-warning' : 'btn btn-outline-warning' }} mt-2 rounded"
+                            href="{{ route('folder') }}">
                             <div class="sb-nav-link-icon"><i class="fa-solid fa-folder"></i></div>
                             Arsip
                         </a>

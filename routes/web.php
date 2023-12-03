@@ -23,7 +23,7 @@ Route::post('/', [loginController::class, 'getData_login'])->name('login');
 
 Route::prefix('admin')->group(function () {
     Route::get('/', function(){
-        return view('admin.dashboard');
+        return view('admin.dashboard',['webtitle' => 'dashboard']);
     })->name('dashboard');
 
     Route::get('/account', [add_accountController::class, 'index'])->name('account');

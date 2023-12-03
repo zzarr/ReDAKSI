@@ -11,8 +11,9 @@ class ArsipController extends Controller
      */
     public function index()
     {
+        $webtitle = "Arsip";
         $folders = DB::table('folders')->join('jabatan', 'hak_akses','=','jabatan.id')->get();
-        return view('admin.arsip', compact('folders'));
+        return view('admin.arsip', compact('folders', 'webtitle'));
     }
 
     public function add_arsip()
