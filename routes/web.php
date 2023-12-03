@@ -3,6 +3,7 @@
 use App\Http\Controllers\add_accountController;
 use App\Http\Controllers\addController;
 use App\Http\Controllers\ArsipController;
+use App\Http\Controllers\DashboardControler;
 use App\Http\Controllers\loginController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,9 +23,7 @@ Route::post('/', [loginController::class, 'getData_login'])->name('login');
 
 
 Route::prefix('admin')->group(function () {
-    Route::get('/', function(){
-        return view('admin.dashboard',['webtitle' => 'dashboard']);
-    })->name('dashboard');
+    Route::get('/', [DashboardControler::class, 'index'])->name('dashboard');
 
     Route::get('/account', [add_accountController::class, 'index'])->name('account');
     Route::get('/add_account', [add_accountController::class, 'create'])->name('add_account');

@@ -21,11 +21,11 @@
         <!-- Navbar Brand-->
         <a class="navbar-brand ps-3" href="index.html">SMP MKGR</a>
         <!-- Sidebar Toggle-->
-        <button class="btn btn-link btn-sm order-lg-0 me-lg-0 order-1 me-4" id="sidebarToggle" href="#!"><i
+        <button class="btn btn-link btn-sm order-lg-0 me-lg-0 order-1 me-4 ms-auto" id="sidebarToggle" href="#!"><i
                 class="fas fa-bars"></i></button>
         <!-- Navbar-->
         <ul class="navbar-nav ms-md-0 me-lg-4 me-3 ms-auto">
-            <li class="nav-item dropdown">
+            <li class="nav-item dropdown ms-auto">
                 <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
                     data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
@@ -71,8 +71,10 @@
                         <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne"
                             data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="/arsip">kurikulum</a>
-                                <a class="nav-link" href="layout-sidenav-light.html">Sarana prasarana</a>
+                                @foreach ($arsip as $item)
+                                    <a class="nav-link" href="/arsip">{{$item->nama_folder}}</a>
+                                @endforeach
+
                             </nav>
                         </div>
                     </div>
