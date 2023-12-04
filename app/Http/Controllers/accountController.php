@@ -6,20 +6,24 @@ use App\Http\Controllers\Controller;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Contracts\Encryption\DecryptException;
 
-class add_accountController extends Controller
+class accountController extends Controller
 {
-    public function index(){
-        $akun = DB::table('users')->join('jabatan', 'id_jabatan','=','jabatan.id')->get();
-
-        return view('admin.account',compact('akun'));
+    public function index()
+    {
+        $akun = DB::table('users')->join('jabatan', 'id_jabatan', '=', 'jabatan.id')->get();
+        $webtitle = 'Dashboard';
+        $arsip = DB::table('folders')->get();
+        return view('admin.account', compact('akun', 'webtitle', 'arsip'));
     }
 
     public function create()
     {
+        $webtitle = 'Dashboard';
         $jabatan = DB::table('jabatan')->get();
         $arsip = DB::table('folders')->get();
-        return view('admin/add_account', compact('jabatan','arsip'));
+        return view('admin/add_account', compact('jabatan', 'webtitle', 'arsip'));
     }
 
     public function addData(Request $request)

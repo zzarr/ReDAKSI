@@ -46,12 +46,12 @@
                             </tr>
                         </tfoot>
                         <tbody>
-                            <tr>
-                                @foreach ($akun as $item)
+                            @foreach ($akun as $item)
+                                <tr>
                                     <td>{{ $item->id }}</td>
                                     <td>{{ $item->username }}</td>
                                     <td>{{ $item->email }}</td>
-                                    <td>{{ $item->password }}</td>
+                                    <td>{{ str_repeat('*', strlen($item->password)) }}</td>
                                     <td>{{ $item->leveluser }}</td>
                                     <td>{{ $item->jabatan }}</td>
                                     <td>
@@ -62,9 +62,8 @@
                                                     class="fa-solid fa-trash"></i></button>
                                         </div>
                                     </td>
-                                @endforeach
-                            </tr>
-
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
