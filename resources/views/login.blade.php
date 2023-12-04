@@ -49,7 +49,7 @@
                     <div class="md:col-span-2 mb-2">
                         <label for="username" class="block text-sm md:text-base font-medium leading-6 text-black">Username</label>
                         <div class="mt-2">
-                            <input type="text" name="Username" id="Username" autocomplete="username" required
+                            <input type="text" name="Username" id="Username" required
                                 class="block w-full px-4 rounded-md py-1.5 text-black border border-amber-300 cursor-text hover:border-blue-600 focus:border-blue-600 text-sm md:text-base sm:leading-6" />
                         </div>
                     </div>
@@ -57,22 +57,18 @@
                     <div class="md:col-span-2 mb-8">
                         <label for="password" class="block text-sm md:text-base font-medium leading-6 text-black">Password</label>
                         <div class="mt-2">
-                            <input type="password" name="Password" id="Password" required
+                            <input type="password" name="password" id="password" required
                                 class="block w-full px-4 rounded-md py-1.5 text-black border border-amber-300 cursor-text hover:border-blue-600 focus:border-blue-600 text-sm md:text-base sm:leading-6" />
                         </div>
                     </div>
 
                     <div class="sm:col-span-2">
-                        <input type="submit" id="submit"
-                            class="block w-full text-white text-sm font-bold tracking-widest rounded-md py-3 bg-blue-600 cursor-pointer hover:text-base hover:py-2.5" value="LOGIN" />
+                      <button type="submit" id="submit" class="block w-full text-white text-sm font-bold tracking-widest rounded-md py-3 bg-blue-600 cursor-pointer hover:text-base hover:py-2.5">LOGIN</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
-    <!--<script src="{{ asset('js/alert.js') }}"></script>-->
-    <script>
-      feather.replace();
-    </script>
+    <script src="{{ asset('js/alert.js') }}"></script>
 </body>
 </html>
