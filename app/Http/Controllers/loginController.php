@@ -26,7 +26,7 @@ class loginController extends Controller
 
         if ($userData) {
             // Jika data pengguna ditemukan
-            if (password_verify($request->input('password'), $userData->password)) {
+            if (password_verify($request->input('Password'), $userData->password)) {
                 // Password cocok, lakukan redirect atau tindakan sesuai dengan user role
                 if ($userData->leveluser == 'admin') {
                     return redirect()->route('admin.dashboard')->withInput();

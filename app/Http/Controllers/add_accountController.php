@@ -9,10 +9,17 @@ use Illuminate\Support\Facades\DB;
 
 class add_accountController extends Controller
 {
+    public function index(){
+        $akun = DB::table('users')->join('jabatan', 'id_jabatan','=','jabatan.id')->get();
+
+        return view('admin.account',compact('akun'));
+    }
+
     public function create()
     {
         $jabatan = DB::table('jabatan')->get();
-        return view('admin/add_account', compact('jabatan'));
+        $arsip = DB::table('folders')->get();
+        return view('admin/add_account', compact('jabatan','arsip'));
     }
 
     public function addData(Request $request)
