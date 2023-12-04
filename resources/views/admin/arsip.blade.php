@@ -39,17 +39,19 @@
                             </tr>
                         </tfoot>
                         <tbody>
-                            <tr>
-                                @foreach ($folders as $item)
+                            @foreach ($folders as $item)
+                                <tr>
+
                                     <td>{{ $item->nama_folder }}</td>
                                     <td>{{ $item->jabatan }}</td>
                                     <td>
-                                        <a type="button" class="btn btn-primary"><i
+                                        <a type="button" class="btn btn-primary" href="/admin/edit/{{ $item->id }}"><i
                                                 class="fa-solid fa-pen-to-square"></i></a>
-                                        <a type="button" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
+                                        <a type="button" class="btn btn-danger" href="/admin/hapus/{{ $item->id }}"><i
+                                                class="fa-solid fa-trash"></i></a>
                                     </td>
-                                @endforeach
-                            </tr>
+                                </tr>
+                            @endforeach
 
                         </tbody>
                     </table>
