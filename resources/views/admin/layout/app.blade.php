@@ -50,7 +50,7 @@
                             <div class="sb-nav-link-icon"><i class="fa-solid fa-gauge-high"></i></div>
                             Dashboard
                         </a>
-                        <a class="nav-link {{ $webtitle == 'Accoun' ? 'bg-warning text-black' : 'btn btn-outline-warning' }} mt-2 rounded"
+                        <a class="nav-link {{ $webtitle == 'Account' ? 'bg-warning text-black' : 'btn btn-outline-warning' }} mt-2 rounded"
                             href="{{ route('account') }}">
                             <div class="sb-nav-link-icon"><i class="fa-solid fa-user"></i></div>
                             akun

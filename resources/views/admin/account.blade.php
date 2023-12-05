@@ -56,8 +56,9 @@
                                     <td>{{ $item->jabatan }}</td>
                                     <td>
                                         <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                                            <button type="button" class="btn btn-outline-primary"><i
-                                                    class="fa-solid fa-user-pen"></i></button>
+                                           
+                                                <button type="button" class="btn btn-outline-primary"><i class="fa-solid fa-user-pen"></i></button>
+                                            
                                             <button type="button" class="btn btn-outline-danger"><i
                                                     class="fa-solid fa-trash"></i></button>
                                         </div>
