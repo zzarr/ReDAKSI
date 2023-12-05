@@ -13,14 +13,14 @@ class accountController extends Controller
     public function index()
     {
         $akun = DB::table('users')->join('jabatan', 'id_jabatan', '=', 'jabatan.id')->get();
-        $webtitle = 'Dashboard';
+        $webtitle = 'Accoun';
         $arsip = DB::table('folders')->get();
         return view('admin.account', compact('akun', 'webtitle', 'arsip'));
     }
 
     public function create()
     {
-        $webtitle = 'Dashboard';
+        $webtitle = 'Accoun';
         $jabatan = DB::table('jabatan')->get();
         $arsip = DB::table('folders')->get();
         return view('admin/add_account', compact('jabatan', 'webtitle', 'arsip'));
