@@ -53,6 +53,6 @@ class accountController extends Controller
             'updated_at' => now(),
         ]);
 
-        return redirect()->route('add_account')->withInput()->with('success', 'Akun berhasil ditambahkan.');
+        return redirect()->route('account')->withInput()->with('success', 'Akun berhasil ditambahkan.');
     }
 }
