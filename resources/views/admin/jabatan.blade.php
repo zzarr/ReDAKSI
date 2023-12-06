@@ -45,10 +45,16 @@
                                     <td>{{ $item->id }}</td>
                                     <td>{{ $item->jabatan }}</td>
                                     <td>
+                                        <form action="{{ route('jabatan.destroy', $item->id) }}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger"><i
+                                                    class="fa-solid fa-trash"></i></button>
+
+                                        </form>
                                         <a type="button" class="btn btn-primary" href="/admin/edit/{{ $item->id }}"><i
                                                 class="fa-solid fa-pen-to-square"></i></a>
-                                        <a type="button" class="btn btn-danger" href="/admin/hapus/{{ $item->id }}"><i
-                                                class="fa-solid fa-trash"></i></a>
+                                        <a type="button" href=""></a>
                                     </td>
                                 </tr>
                             @endforeach

@@ -73,8 +73,9 @@ class JabatanController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy( $id)
     {
-        //
+        DB::table('jabatan')->where('id', $id)->delete();
+        return redirect('admin/jabatan');
     }
 }
