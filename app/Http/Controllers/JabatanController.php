@@ -59,7 +59,10 @@ class JabatanController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $webtitle = "Jabatan";
+        $arsip = DB::table('folders')->get();
+        $jabatan = DB::table('jabatan')->where('id',$id)->get();
+        return view('admin.edit_jabatan',compact('jabatan','arsip','webtitle'));
     }
 
     /**
@@ -67,7 +70,12 @@ class JabatanController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        DB::table('jabatan')->where('id',$id)->update([
+            'jabatan' => $request->input('jabatan'),
+            'updated_at' => now()
+        ]);
+
+        return redirect('admin/jabatan');
     }
 
     /**

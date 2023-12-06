@@ -52,7 +52,7 @@
                                                     class="fa-solid fa-trash"></i></button>
 
                                         </form>
-                                        <a type="button" class="btn btn-primary" href="/admin/edit/{{ $item->id }}"><i
+                                        <a type="button" class="btn btn-primary" href="/admin/jabatan/{{ $item->id }}/edit"><i
                                                 class="fa-solid fa-pen-to-square"></i></a>
                                         <a type="button" href=""></a>
                                     </td>
