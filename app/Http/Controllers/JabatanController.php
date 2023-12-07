@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 class JabatanController extends Controller
@@ -25,7 +24,7 @@ class JabatanController extends Controller
     public function create()
     {
         //
-         $webtitle = "Jabatan";
+        $webtitle = "Jabatan";
         $arsip = DB::table('folders')->get();
 
         return view('admin.add_jabatan', compact('webtitle','arsip'));
