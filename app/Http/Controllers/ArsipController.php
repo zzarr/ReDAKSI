@@ -16,11 +16,6 @@ class ArsipController extends Controller
         $folders = DB::table('folders')
                     ->leftJoin('jabatan', 'folders.hak_akses', '=', 'jabatan.id')
                     ->select('folders.*', 'jabatan.jabatan as jabatan') // Adjust the column names accordingly
-                    ->union(
-                        DB::table('folders')
-                            ->rightJoin('jabatan', 'folders.hak_akses', '=', 'jabatan.id')
-                            ->select('folders.*', 'jabatan.jabatan as jabatan') // Adjust the column names accordingly
-                    )
                     ->get();
 
 

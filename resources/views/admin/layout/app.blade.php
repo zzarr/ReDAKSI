@@ -45,16 +45,26 @@
                 <div class="sb-sidenav-menu">
                     <div class="nav p-2">
                         <div class="sb-sidenav-menu-heading">Core</div>
-                        <a class="nav-link {{ $webtitle == 'dashboard' ? 'active bg-warning ' : 'btn btn-outline-warning' }} mt-2 rounded"
+                        <a class="nav-link {{ $webtitle == 'Dashboard' ? 'active bg-warning ' : 'btn btn-outline-warning' }} mt-2 rounded"
                             href="{{ route('dashboard') }}">
                             <div class="sb-nav-link-icon"><i class="fa-solid fa-gauge-high"></i></div>
                             Dashboard
                         </a>
+<<<<<<< HEAD
                         <a class="nav-link {{ $webtitle == 'Account' ? 'bg-warning text-black' : 'btn btn-outline-warning' }} mt-2 rounded"
+=======
+                        <a class="nav-link {{ $webtitle == 'Jabatan' ? 'active bg-warning ' : 'btn btn-outline-warning' }} mt-2 rounded"
+                            href="{{ url('admin/jabatan') }}">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-user-gear"></i></div>
+                            jabatan
+                        </a>
+                        <a class="nav-link {{ $webtitle == 'Accoun' ? 'active bg-warning' : 'btn btn-outline-warning' }} mt-2 rounded"
+>>>>>>> b72a2dcb61976299d208607e6837d9258a2a01d8
                             href="{{ route('account') }}">
-                            <div class="sb-nav-link-icon"><i class="fa-solid fa-user"></i></div>
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-users"></i></div>
                             akun
                         </a>
+
                         <a class="nav-link {{ $webtitle == 'Arsip' ? 'active bg-warning' : 'btn btn-outline-warning' }} mt-2 rounded"
                             href="{{ route('folder') }}">
                             <div class="sb-nav-link-icon"><i class="fa-solid fa-folder"></i></div>
@@ -72,7 +82,7 @@
                             data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
                                 @foreach ($arsip as $item)
-                                    <a class="nav-link" href="/arsip">{{$item->nama_folder}}</a>
+                                    <a class="nav-link" href="/arsip">{{ $item->nama_folder }}</a>
                                 @endforeach
 
                             </nav>

@@ -24,7 +24,7 @@ class accountController extends Controller
 
     public function create()
     {
-        $webtitle = 'Dashboard';
+        $webtitle = 'Account';
         $jabatan = DB::table('jabatan')->get();
         $arsip = DB::table('folders')->get();
         return view('admin/add_account', compact('jabatan', 'webtitle', 'arsip'));
