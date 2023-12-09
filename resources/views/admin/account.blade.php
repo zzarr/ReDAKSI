@@ -10,11 +10,7 @@
             </ol>
             <div class="card mb-4">
                 <div class="card-body">
-
-                    <a href="{{ route('add_account') }}" class="btn btn-outline-primary"><i
-                            class="fa-solid fa-user-plus"></i></a>
-
-
+                    <a href="{{ route('add_account') }}" class="btn btn-outline-primary"><i class="fa-solid fa-user-plus"></i></a>
                 </div>
             </div>
             <div class="card">
@@ -56,8 +52,8 @@
                                     <td>{{ $item->jabatan }}</td>
                                     <td>
                                         <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                                           
-                                                <button type="button" class="btn btn-outline-primary"><i class="fa-solid fa-user-pen"></i></button>
+                                            <a href="{{ route('update_account', ['iduser' => $item->id]) }}">
+                                                <button type="button" class="btn btn-outline-primary"><i class="fa-solid fa-user-pen"></i></button></a>
                                             <button type="button" class="btn btn-outline-danger"><i
                                                     class="fa-solid fa-trash"></i></button>
                                         </div>

@@ -17,17 +17,25 @@ class accountController extends Controller
             ->leftJoin('jabatan', 'id_jabatan', '=', 'jabatan.id')
             ->select('users.*', 'jabatan') // Adjust the column names accordingly
             ->get();
-        $webtitle = 'Dashboard';
+        $webtitle = 'Account';
         $arsip = DB::table('folders')->get();
         return view('admin.account', compact('akun', 'webtitle', 'arsip'));
     }
 
     public function create()
     {
-        $webtitle = 'Account';
+        $webtitle = 'Add_Account';
         $jabatan = DB::table('jabatan')->get();
         $arsip = DB::table('folders')->get();
         return view('admin/add_account', compact('jabatan', 'webtitle', 'arsip'));
+    }
+
+    public function update()
+    {
+        $webtitle = 'update_Account';
+        $jabatan = DB::table('jabatan')->get();
+        $arsip = DB::table('folders')->get();
+        return view('admin/update_account', compact('jabatan', 'webtitle', 'arsip'));
     }
 
     public function addData(Request $request)
@@ -59,4 +67,28 @@ class accountController extends Controller
 
         return redirect()->route('account')->withInput()->with('success', 'Akun berhasil ditambahkan.');
     }
+
+    /*public function updateData(Request $request)
+    {
+        $request->validate([
+            'username' => 'required|string|max:255',
+            'email' => 'nullable|email|max:255',
+            'password' => 'required|string|min:8',
+            'leveluser' => 'required|in:admin,user',
+            'jabatan' => 'required',
+        ]);
+
+        // Menggunakan Query Builder untuk menyimpan data ke database
+        $iduser = DB::table('users')->select('id');
+        DB::table('users')->where('id', $iduser)->update([
+            'username' => $request->input('username'),
+            'email' => $request->input('email'),
+            'password' => bcrypt($request->input('password')),
+            'leveluser' => $request->input('leveluser'),
+            'id_jabatan' => $request->input('jabatan'),
+            'updated_at' => now(),
+        ]);
+
+        return redirect()->route('account')->withInput()->with('success', 'Akun berhasil diupdate.');
+    }*/
 }
