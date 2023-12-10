@@ -6,6 +6,7 @@ use App\Http\Controllers\accountController;
 use App\Http\Controllers\DashboardControler;
 use App\Http\Controllers\JabatanController;
 use App\Http\Controllers\loginController;
+use App\Http\Controllers\StandarController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -39,6 +40,8 @@ Route::prefix('admin')->group(function () {
     Route::post('/simpan', [ArsipController::class, 'tambah_arsip'])->name('tambah_arsip');
     Route::get('/hapus/{id_nya}', [ArsipController::class, 'hapus_Arsip'])->name('hapus_arsip');
     Route::get('/edit/{id}', [ArsipController::class, 'edit'])->name('edit');
+
+    Route::get('standar_akreditasi', [StandarController::class, 'index'])->name('standar');
   
 
 });

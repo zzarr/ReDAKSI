@@ -61,6 +61,12 @@
                             akun
                         </a>
 
+                        <a class="nav-link {{ $webtitle == 'Standar Akreditasi' ? 'active bg-warning ' : 'btn btn-outline-warning' }} mt-2 rounded"
+                            href="{{ route('standar') }}">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-file-pen"></i></div>
+                            Standar Akreditasi
+                        </a>
+
                         <a class="nav-link {{ $webtitle == 'Arsip' ? 'active bg-warning' : 'btn btn-outline-warning' }} mt-2 rounded"
                             href="{{ route('folder') }}">
                             <div class="sb-nav-link-icon"><i class="fa-solid fa-folder"></i></div>
@@ -77,9 +83,6 @@
                         <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne"
                             data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                @foreach ($arsip as $item)
-                                    <a class="nav-link" href="/arsip">{{ $item->nama_folder }}</a>
-                                @endforeach
 
                             </nav>
                         </div>
