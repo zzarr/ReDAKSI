@@ -41,4 +41,8 @@ class StandarController extends Controller
 
         return redirect()->route('standar');
     }
+
+    public function edit($id){
+        
+    }
 }

@@ -52,7 +52,7 @@
 
                                     <td>
                                         <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                                            <a type="button" class="btn btn-outline-primary"><i
+                                            <a href="admin/edit_standar/{{$item->id}}" type="button" class="btn btn-outline-primary"><i
                                                     class="fa-solid fa-user-pen"></i></a>
                                             <a type="button" class="btn btn-outline-danger"><i
                                                     class="fa-solid fa-trash"></i></a>
