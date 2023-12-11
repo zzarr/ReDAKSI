@@ -52,10 +52,14 @@
                                     <td>{{ $item->jabatan }}</td>
                                     <td>
                                         <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                                            <a href="{{ route('update_account', ['iduser' => $item->id]) }}">
+                                            <a href="{{ route('update_account',['iduser'=>$item->id]) }}">
                                                 <button type="button" class="btn btn-outline-primary"><i class="fa-solid fa-user-pen"></i></button></a>
-                                            <button type="button" class="btn btn-outline-danger"><i
-                                                    class="fa-solid fa-trash"></i></button>
+                                            <form action="{{ route('delete_account', ['iduser' => $item->id]) }}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-outline-danger"><i class="fa-solid fa-trash"></i></button>
+                                            </form>
+                                                
                                         </div>
                                     </td>
                                 </tr>

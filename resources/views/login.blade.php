@@ -12,7 +12,7 @@
     <!-- FeatherIcon -->
     <script src="https://unpkg.com/feather-icons"></script>
 
-    <title>{{ 'webtitle' }}</title>
+    <title>{{ isset($webtitle) ? $webtitle : 'Login' }}</title>
 </head>
 
 <body>

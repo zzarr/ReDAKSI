@@ -7,6 +7,7 @@ use Illuminate\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Contracts\Encryption\DecryptException;
+use PhpParser\Node\Expr\Cast\String_;
 
 class accountController extends Controller
 {
@@ -27,15 +28,16 @@ class accountController extends Controller
         $webtitle = 'Add_Account';
         $jabatan = DB::table('jabatan')->get();
         $arsip = DB::table('folders')->get();
-        return view('admin/add_account', compact('jabatan', 'webtitle', 'arsip'));
+        return view('admin.add_account', compact('jabatan', 'webtitle', 'arsip'));
     }
 
-    public function update()
+    public function update($iduser)
     {
         $webtitle = 'update_Account';
         $jabatan = DB::table('jabatan')->get();
         $arsip = DB::table('folders')->get();
-        return view('admin/update_account', compact('jabatan', 'webtitle', 'arsip'));
+        $akun = DB::table('users')->where('id', $iduser)->first();
+        return view('admin.update_account', compact('jabatan', 'webtitle', 'arsip', 'akun'));
     }
 
     public function addData(Request $request)
@@ -68,19 +70,19 @@ class accountController extends Controller
         return redirect()->route('account')->withInput()->with('success', 'Akun berhasil ditambahkan.');
     }
 
-    /*public function updateData(Request $request)
+    public function updateData(Request $request)
     {
         $request->validate([
-            'username' => 'required|string|max:255',
+            'id' => 'required|string',
+            'username' => 'nullable|string|max:255',
             'email' => 'nullable|email|max:255',
-            'password' => 'required|string|min:8',
-            'leveluser' => 'required|in:admin,user',
-            'jabatan' => 'required',
+            'password' => 'nullable|string|min:8',
+            'leveluser' => 'nullable|in:admin,user',
+            'jabatan' => 'nullable',
         ]);
 
-        // Menggunakan Query Builder untuk menyimpan data ke database
-        $iduser = DB::table('users')->select('id');
-        DB::table('users')->where('id', $iduser)->update([
+        // Menggunakan Query Builder untuk mengupdate data ke database
+        DB::table('users')->where('id', $request->id)->update([
             'username' => $request->input('username'),
             'email' => $request->input('email'),
             'password' => bcrypt($request->input('password')),
@@ -90,5 +92,13 @@ class accountController extends Controller
         ]);
 
         return redirect()->route('account')->withInput()->with('success', 'Akun berhasil diupdate.');
-    }*/
+    }
+
+    public function delete($iduser)
+    {
+        // Lakukan operasi delete data pengguna berdasarkan ID
+        DB::table('users')->where('id', $iduser)->delete();
+
+        return redirect()->route('account')->with('success', 'Akun berhasil dihapus.');
+    }
 }
