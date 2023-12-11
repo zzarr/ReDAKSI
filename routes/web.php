@@ -41,8 +41,9 @@ Route::prefix('admin')->group(function () {
     Route::get('/hapus/{id_nya}', [ArsipController::class, 'hapus_Arsip'])->name('hapus_arsip');
     Route::get('/edit/{id}', [ArsipController::class, 'edit'])->name('edit');
 
-    Route::get('standar_akreditasi', [StandarController::class, 'index'])->name('standar');
-  
+    Route::get('/standar_akreditasi', [StandarController::class, 'index'])->name('standar');
+    Route::get('/tambah_standar', [StandarController::class, 'create'])->name('add_standar');
+    Route::post('/insert_standar', [StandarController::class, 'insert'])->name('insert_standar');
 
 });
 

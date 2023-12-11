@@ -11,7 +11,7 @@
             <div class="card mb-4">
                 <div class="card-body">
 
-                    <a type="button" href="{{ url('admin/jabatan/create') }}" class="btn btn-outline-primary"><i
+                    <a type="button" href="{{ route('add_standar') }}" class="btn btn-outline-primary"><i
                             class="fa-solid fa-square-plus"></i></a>
 
 
@@ -44,11 +44,22 @@
                         </tfoot>
                         <tbody>
                             @foreach ($standar as $item)
-                                <td>{{ $item->nm_standar }}</td>
-                                <td>{{ $item->nosoal }}</td>
-                                <td>{{ $item->Jumlah_soal }}</td>
-                                <td>{{ $item->bobot_standar }}</td>
-                                <td></td>
+                                <tr>
+                                    <td>{{ $item->nm_standar }}</td>
+                                    <td>{{ $item->NoSoal }}</td>
+                                    <td>{{ $item->jumlah_soal }}</td>
+                                    <td>{{ $item->bobot_standar }}</td>
+
+                                    <td>
+                                        <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                                            <a type="button" class="btn btn-outline-primary"><i
+                                                    class="fa-solid fa-user-pen"></i></a>
+                                            <a type="button" class="btn btn-outline-danger"><i
+                                                    class="fa-solid fa-trash"></i></a>
+                                        </div>
+                                    </td>
+
+                                </tr>
                             @endforeach
 
 
