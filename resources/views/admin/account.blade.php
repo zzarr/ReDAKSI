@@ -12,7 +12,7 @@
                 <div class="card-body">
 
                     <a href="{{ route('add_account') }}" class="btn btn-outline-primary"><i
-                            class="fa-solid fa-user-plus"></i></a>
+                            class="bi bi-person-plus"></i></a>
 
                 </div>
             </div>
