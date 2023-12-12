@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 class JabatanController extends Controller
@@ -25,7 +24,7 @@ class JabatanController extends Controller
     public function create()
     {
         //
-         $webtitle = "Jabatan";
+        $webtitle = "Jabatan";
         $arsip = DB::table('folders')->get();
 
         return view('admin.add_jabatan', compact('webtitle','arsip'));
@@ -59,7 +58,10 @@ class JabatanController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $webtitle = "Jabatan";
+        $arsip = DB::table('folders')->get();
+        $jabatan = DB::table('jabatan')->where('id',$id)->get();
+        return view('admin.edit_jabatan',compact('jabatan','arsip','webtitle'));
     }
 
     /**
@@ -67,7 +69,12 @@ class JabatanController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        DB::table('jabatan')->where('id',$id)->update([
+            'jabatan' => $request->input('jabatan'),
+            'updated_at' => now()
+        ]);
+
+        return redirect('admin/jabatan');
     }
 
     /**

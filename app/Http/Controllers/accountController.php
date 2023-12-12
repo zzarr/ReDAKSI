@@ -12,15 +12,19 @@ class accountController extends Controller
 {
     public function index()
     {
-        $akun = DB::table('users')->join('jabatan', 'id_jabatan', '=', 'jabatan.id')->get();
-        $webtitle = 'Accoun';
+        //$akun = DB::table('users')->join('jabatan', 'id_jabatan', '=', 'jabatan.id')->get();
+        $akun = DB::table('users')
+            ->leftJoin('jabatan', 'id_jabatan', '=', 'jabatan.id')
+            ->select('users.*', 'jabatan') // Adjust the column names accordingly
+            ->get();
+        $webtitle = 'Dashboard';
         $arsip = DB::table('folders')->get();
         return view('admin.account', compact('akun', 'webtitle', 'arsip'));
     }
 
     public function create()
     {
-        $webtitle = 'Accoun';
+        $webtitle = 'Account';
         $jabatan = DB::table('jabatan')->get();
         $arsip = DB::table('folders')->get();
         return view('admin/add_account', compact('jabatan', 'webtitle', 'arsip'));
@@ -53,6 +57,6 @@ class accountController extends Controller
             'updated_at' => now(),
         ]);
 
-        return redirect()->route('add_account')->withInput()->with('success', 'Akun berhasil ditambahkan.');
+        return redirect()->route('account')->withInput()->with('success', 'Akun berhasil ditambahkan.');
     }
 }

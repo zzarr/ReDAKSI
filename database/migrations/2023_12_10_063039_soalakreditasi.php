@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('C');
             $table->string('D');
             $table->string('E');
-            $table->integer('bobot');
+            $table->integer('skor_butir');
             $table->foreign('id_standar')->references('id')->on('StandarAkreditasi');
             $table->timestamps();
         });

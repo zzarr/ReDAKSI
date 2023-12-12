@@ -45,6 +45,8 @@ Route::prefix('admin')->group(function () {
     Route::get('/tambah_standar', [StandarController::class, 'create'])->name('add_standar');
     Route::post('/insert_standar', [StandarController::class, 'insert'])->name('insert_standar');
     Route::get('/edit_standar/{id}', [StandarController::class, 'edit'])->name('edit_standar');
+    Route::post('/update_standar/{id}', [StandarController::class, 'update'])->name('update_standar');
+    Route::get('/hapus_standar/{id}', [StandarController::class, 'delete'])->name('hapus_standar');
 
 });
 

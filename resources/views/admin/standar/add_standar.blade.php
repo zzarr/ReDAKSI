@@ -1,4 +1,4 @@
-@extends('admin.layout.app')
+@extends('../admin/layout.app')
 @section('content')
     <main>
         <div class="container">
@@ -27,16 +27,14 @@
                                 <input type="text" class="form-control" name="bobot" aria-describedby="basic-addon1">
                             </div>
                         </div>
-                        <div class="row my-3">
+                        <div class="row gx-1 my-4">
                             <div class="col">
-                                <button type="submit" class="btn btn-outline-primary">simpan</button>
+                                <button type="submit" class="btn btn-outline-primary">Simpan</button>
+                                <a href="{{ route('standar') }}" class="btn btn-outline-danger">Batal</a>
                             </div>
                         </div>
-
                     </form>
                 </div>
             </div>
     </main>
-
-    </div>
 @endsection

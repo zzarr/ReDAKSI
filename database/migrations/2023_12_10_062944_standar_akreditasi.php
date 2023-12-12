@@ -18,10 +18,10 @@ return new class extends Migration
             $table->integer('jumlah_soal');
             $table->integer('bobot_standar');
             $table->integer('skorMaxSoal');
-            $table->integer('jumlahBobotButir');
+            $table->float('jumlahBobotButir');
             $table->integer('skorTertimbangMax');
-            $table->integer('skorPerolehan');
-            $table->integer('nilaiPerStandar');
+            $table->integer('skorPerolehan')->nullable();
+            $table->integer('nilaiPerStandar')->nullable();
             $table->timestamps();
         });
     }

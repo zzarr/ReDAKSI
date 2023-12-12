@@ -1,4 +1,4 @@
-@extends('admin.layout.app')
+@extends('../admin/layout.app')
 
 @section('content')
     <main class="m-4">
@@ -52,10 +52,12 @@
 
                                     <td>
                                         <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                                            <a href="admin/edit_standar/{{$item->id}}" type="button" class="btn btn-outline-primary"><i
-                                                    class="fa-solid fa-user-pen"></i></a>
-                                            <a type="button" class="btn btn-outline-danger"><i
-                                                    class="fa-solid fa-trash"></i></a>
+                                            <a href="/admin/edit_standar/{{ $item->id }}" type="button"
+                                                class="btn btn-outline-primary"><i class="fa-solid fa-pen"></i></a>
+                                            <a href="/admin/hapus_standar/{{ $item->id }}" type="button"
+                                                class="btn btn-outline-danger"><i class="fa-solid fa-trash"></i></a>
+                                            <a href="/admin/hapus_standar/{{ $item->id }}" type="button"
+                                                class="btn btn-outline-info"><i class="fa-solid fa-eye"></i></a>
                                         </div>
                                     </td>
 
