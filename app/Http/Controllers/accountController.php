@@ -17,7 +17,7 @@ class accountController extends Controller
             ->leftJoin('jabatan', 'id_jabatan', '=', 'jabatan.id')
             ->select('users.*', 'jabatan') // Adjust the column names accordingly
             ->get();
-        $webtitle = 'Dashboard';
+        $webtitle = 'Accoun';
         $arsip = DB::table('folders')->get();
         return view('admin.account', compact('akun', 'webtitle', 'arsip'));
     }

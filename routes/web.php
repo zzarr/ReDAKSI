@@ -39,6 +39,7 @@ Route::prefix('admin')->group(function () {
     Route::post('/simpan', [ArsipController::class, 'tambah_arsip'])->name('tambah_arsip');
     Route::get('/hapus/{id_nya}', [ArsipController::class, 'hapus_Arsip'])->name('hapus_arsip');
     Route::get('/edit/{id}', [ArsipController::class, 'edit'])->name('edit');
+    Route::post('/update_arsip/{id}', [ArsipController::class, 'update'])->name('update_arsip');
   
 
 });
