@@ -7,6 +7,7 @@ use App\Http\Controllers\DashboardControler;
 use App\Http\Controllers\JabatanController;
 use App\Http\Controllers\loginController;
 use App\Http\Controllers\StandarController;
+use App\Http\Controllers\SoalController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -54,6 +55,8 @@ Route::prefix('admin')->group(function () {
     Route::post('/update_standar/{id}', [StandarController::class, 'update'])->name('update_standar');
     Route::get('/hapus_standar/{id}', [StandarController::class, 'delete'])->name('hapus_standar');
     Route::get('/show/{id}', [StandarController::class, 'show'])->name('lihat_data_soal');
+
+    Route::get('/tambah_soal/{id}', [SoalController::class, 'create'])->name('add_soal');
 
 });
 
