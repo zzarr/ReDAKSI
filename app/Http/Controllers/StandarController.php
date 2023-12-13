@@ -18,8 +18,19 @@ class StandarController extends Controller
 
     public function show($id){
         $webtitle = "Standar Akreditasi";
-        $standar = DB::table('StandarAkreditasi')->where('id', $id)->first(['NoSoal','nm_standar']);
-        return view('admin.standar.show_soal', compact('webtitle','standar','no'));
+        $standar = DB::table('StandarAkreditasi')->where('id', $id)->first(['NoSoal', 'nm_standar','jumlah_soal']);
+        $i = 0;
+        $jml = intval($standar->NoSoal);
+        $NoSoal = array();
+        
+
+        while ($i < intval($standar->jumlah_soal) ) {
+            $NoSoal[] = $jml;
+            $i++;
+            $jml++;
+        }
+
+        return view('admin.standar.show_soal', compact('webtitle','standar','NoSoal',));
     }
 
     public function create(){
