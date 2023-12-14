@@ -9,13 +9,12 @@
                         {{ csrf_field() }}
                         <div class="row g-3">
                             <div class="col-sm-6">
-                                <label for="nm_standar">Nama Standar</label>
-                                <input type="text" class="form-control" name="nm_standar" aria-describedby="basic-addon1">
+                                <label for="">No</label>
+                                <input type="text" class="form-control" name="id" aria-describedby="basic-addon1">
                             </div>
                             <div class="col-sm-6">
-                                <label for="">No Soal</label>
-                                <input type="text" class="form-control" name="noSoal" aria-describedby="basic-addon1">
-
+                                <label for="nm_standar">Nama Standar</label>
+                                <input type="text" class="form-control" name="nm_standar" aria-describedby="basic-addon1">
                             </div>
                             <div class="col-sm-6">
                                 <label for="">Jumlah Soal</label>

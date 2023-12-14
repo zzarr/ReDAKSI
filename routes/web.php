@@ -7,6 +7,7 @@ use App\Http\Controllers\DashboardControler;
 use App\Http\Controllers\JabatanController;
 use App\Http\Controllers\loginController;
 use App\Http\Controllers\StandarController;
+use App\Http\Controllers\SoalController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -44,6 +45,8 @@ Route::prefix('admin')->group(function () {
     Route::post('/simpan', [ArsipController::class, 'tambah_arsip'])->name('tambah_arsip');
     Route::get('/hapus/{id_nya}', [ArsipController::class, 'hapus_Arsip'])->name('hapus_arsip');
     Route::get('/edit/{id}', [ArsipController::class, 'edit'])->name('edit');
+    Route::post('/update_arsip/{id}', [ArsipController::class, 'update'])->name('update_arsip');
+  
 
     Route::get('/standar_akreditasi', [StandarController::class, 'index'])->name('standar');
     Route::get('/tambah_standar', [StandarController::class, 'create'])->name('add_standar');
@@ -51,6 +54,9 @@ Route::prefix('admin')->group(function () {
     Route::get('/edit_standar/{id}', [StandarController::class, 'edit'])->name('edit_standar');
     Route::post('/update_standar/{id}', [StandarController::class, 'update'])->name('update_standar');
     Route::get('/hapus_standar/{id}', [StandarController::class, 'delete'])->name('hapus_standar');
+    Route::get('/show/{id}', [StandarController::class, 'show'])->name('lihat_data_soal');
+
+    Route::get('/tambah_soal/{id}', [SoalController::class, 'create'])->name('add_soal');
 
 });
 

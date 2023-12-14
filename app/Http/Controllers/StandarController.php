@@ -16,6 +16,22 @@ class StandarController extends Controller
         return view('admin.standar.standar', compact('webtitle', 'standar'));
     }
 
+    public function show($id){
+        $webtitle = "Standar Akreditasi";
+        $standar = DB::table('StandarAkreditasi')->where('id', $id)->first(['NoSoal', 'nm_standar','jumlah_soal']);
+        $soal = DB::table('SoalAkreditasi')->where('id_standar', $id)->first(['pertanyaan']);
+        $i = 0;
+        $jml = intval($standar->NoSoal);
+        $NoSoal = array();
+        while ($i < intval($standar->jumlah_soal) ) {
+            $NoSoal[] = $jml;
+            $i++;
+            $jml++;
+        }
+
+        return view('admin.standar.show_soal', compact('webtitle','standar','NoSoal','soal'));
+    }
+
     public function create(){
          $webtitle = "Standar Akreditasi";
          
@@ -24,9 +40,20 @@ class StandarController extends Controller
     }
 
     public function insert(Request $request){
+        if($request->input('id')>1){
+            $noSoalsebelum = DB::table('StandarAkreditasi')->where('id', $request->input('id')-1)->first(['NoSoal']);
+            $jmlsebelum = DB::table('StandarAkreditasi')->where('id', $request->input('id')-1)->first(['jumlah_soal']);
+            $noSoal = $noSoalsebelum->NoSoal + $jmlsebelum->jumlah_soal;
+        }
+        else{
+            $noSoal = 1;
+        }
+        
+
         $data = [
+            'id' => $request->input('id'),
             'nm_standar' => $request->input('nm_standar'),
-            'noSoal' => $request->input('noSoal'),
+            'noSoal' => $noSoal,
             'jumlah_soal' =>$request->input('jumlah_soal'),
             'bobot_standar' => $request->input('bobot'),
             'skorMaxSoal' => 4,
