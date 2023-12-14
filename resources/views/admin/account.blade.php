@@ -10,14 +10,9 @@
             </ol>
             <div class="card mb-4">
                 <div class="card-body">
-<<<<<<< HEAD
 
-                    <a href="{{ route('add_account') }}" class="btn btn-outline-primary"><i
-                            class="bi bi-person-plus"></i></a>
-
-=======
                     <a href="{{ route('add_account') }}" class="btn btn-outline-primary"><i class="fa-solid fa-user-plus"></i></a>
->>>>>>> 5d2d0daf63a82c4d9ba07fda67d6b0b1d3824fb9
+
                 </div>
             </div>
             <div class="card">
