@@ -45,9 +45,10 @@
                                     
                                     <td>{{ $item }}</td>
                                     <td>
-                                        @if ($soal && isset($soal->pertanyaan))
-                                        {{ $soal->pertanyaan[$item] }}
+                                        @if (isset($soal->pertanyaan) && is_array($soal->pertanyaan) && isset($soal->pertanyaan[$item]))
+                                            {{ $pertanyaan = $soal->pertanyaan[$item] }}
                                         @endif
+
                                     </td>
                                     <td>
                                         <div class="btn-group" role="group" aria-label="Basic mixed styles example">
@@ -59,7 +60,6 @@
                                                 class="btn btn-outline-info"><i class="fa-solid fa-eye"></i></a>
                                         </div>
                                     </td>
-
                                 </tr>
                             @endforeach
 

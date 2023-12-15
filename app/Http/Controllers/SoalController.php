@@ -11,5 +11,6 @@ class SoalController extends Controller
         $webtitle = "Standar Akreditasi";
         $standar = DB::table('StandarAkreditasi');
         return view('admin.Soal.add_soal',compact('id','webtitle','satndar'));
+        
     }
 }

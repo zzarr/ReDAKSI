@@ -57,6 +57,7 @@ Route::prefix('admin')->group(function () {
     Route::get('/show/{id}', [StandarController::class, 'show'])->name('lihat_data_soal');
 
     Route::get('/tambah_soal/{id}', [SoalController::class, 'create'])->name('add_soal');
+    Route::post('/simpan_soal', [SoalController::class, 'insert'])->name('tambah_soal');
 
 });
 
