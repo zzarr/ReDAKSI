@@ -13,14 +13,14 @@ return new class extends Migration
     {
         Schema::create('SoalAkreditasi', function (Blueprint $table) {
             $table->id('idp');
-            $table->unsignedBigInteger('id_standar');
-            $table->text('pertanyaan');
-            $table->string('A');
-            $table->string('B');
-            $table->string('C');
-            $table->string('D');
-            $table->string('E');
-            $table->integer('skor_butir');
+            $table->unsignedBigInteger('id_standar')->nullable();
+            $table->text('pertanyaan')->nullable();
+            $table->string('A')->nullable();
+            $table->string('B')->nullable();
+            $table->string('C')->nullable();
+            $table->string('D')->nullable();
+            $table->string('E')->nullable();
+            $table->integer('skor_butir')->nullable();
             $table->foreign('id_standar')->references('id')->on('StandarAkreditasi');
             $table->timestamps();
         });

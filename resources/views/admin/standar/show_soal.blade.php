@@ -3,19 +3,16 @@
 @section('content')
     <main class="m-4">
         <div class="container-fluid">
-            <h4 class="mb-3">Data Soal</h4>
+            <h4 class="mb-3">Data Soal </h4>
             <ol class="breadcrumb mb-4">
                 <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                <li class="breadcrumb-item active">Satndar Akreditasi</li>
+                <li class="breadcrumb-item active">Standar Akreditasi</li>
             </ol>
             <div class="card mb-4">
                 <div class="card-body">
 
                     <a type="button" href="{{ route('add_standar') }}" class="btn btn-outline-primary"><i
                             class="fa-solid fa-square-plus"></i></a>
-
-
-
                 </div>
             </div>
             <div class="card">
@@ -40,24 +37,19 @@
                             </tr>
                         </tfoot>
                         <tbody>
-                            @foreach ($NoSoal as $item)
+                            @foreach ($standar as $item)
                                 <tr>
-                                    
-                                    <td>{{ $item }}</td>
-                                    <td>
-                                        @if (isset($soal->pertanyaan) && is_array($soal->pertanyaan) && isset($soal->pertanyaan[$item]))
-                                            {{ $pertanyaan = $soal->pertanyaan[$item] }}
-                                        @endif
-
-                                    </td>
+                                    <td>{{ $item->idp }}</td>
+                                    <td>{{ $item->pertanyaan }}</td>
                                     <td>
                                         <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                                            <a href="/admin/tambah_soal/{{ $item }}" type="button"
-                                                class="btn btn-outline-primary"><i class="fa-solid fa-pen"></i></a>
-                                            <a href="/admin/hapus_standar/" type="button"
-                                                class="btn btn-outline-danger"><i class="fa-solid fa-trash"></i></a>
-                                            <a href="/admin/show/" type="button"
-                                                class="btn btn-outline-info"><i class="fa-solid fa-eye"></i></a>
+                                            <a href="/admin/tambah_soal/{{ $item->idp }}/{{ $id_standar }}"
+                                                type="button" class="btn btn-outline-primary"><i
+                                                    class="fa-solid fa-pen"></i></a>
+                                            <a href="/admin/hapus_standar/" type="button" class="btn btn-outline-danger"><i
+                                                    class="fa-solid fa-trash"></i></a>
+                                            <a href="/admin/show/" type="button" class="btn btn-outline-info"><i
+                                                    class="fa-solid fa-eye"></i></a>
                                         </div>
                                     </td>
                                 </tr>

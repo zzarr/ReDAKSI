@@ -6,7 +6,7 @@
             <h4 class="mb-3">Standar Akreditasi</h4>
             <ol class="breadcrumb mb-4">
                 <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                <li class="breadcrumb-item active">Satndar Akreditasi</li>
+                <li class="breadcrumb-item active">Stanndar Akreditasi</li>
             </ol>
             <div class="card mb-4">
                 <div class="card-body">
@@ -47,7 +47,7 @@
                         <tbody>
                             @foreach ($standar as $item)
                                 <tr>
-                                    
+
                                     <td>{{ $item->id }}</td>
                                     <td>{{ $item->nm_standar }}</td>
                                     <td>{{ $item->NoSoal }}</td>
