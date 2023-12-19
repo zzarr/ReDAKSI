@@ -8,10 +8,7 @@
                     <form action="{{ Route('insert_standar') }}" method="post">
                         {{ csrf_field() }}
                         <div class="row g-3">
-                            <div class="col-sm-6">
-                                <label for="">No</label>
-                                <input type="text" class="form-control" name="id" aria-describedby="basic-addon1">
-                            </div>
+
                             <div class="col-sm-6">
                                 <label for="nm_standar">Nama Standar</label>
                                 <input type="text" class="form-control" name="nm_standar" aria-describedby="basic-addon1">
@@ -23,7 +20,8 @@
                             </div>
                             <div class="col-sm-6">
                                 <label for="">Bobot</label>
-                                <input type="text" class="form-control" name="bobot" aria-describedby="basic-addon1">
+                                <input type="number" class="form-control" name="bobot" aria-describedby="basic-addon1"
+                                    min="1" max="{{ $max }}">
                             </div>
                         </div>
                         <div class="row gx-1 my-4">
