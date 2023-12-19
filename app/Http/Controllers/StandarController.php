@@ -18,13 +18,14 @@ class StandarController extends Controller
 
     public function show($id){
         $webtitle = "Standar Akreditasi";
-        $standar = DB::table('StandarAkreditasi')
+        $standar = DB::table('StandarAkreditasi')->where('id','=', $id)->first(['nm_standar']);
+        $soal = DB::table('StandarAkreditasi')
                     ->rightJoin('SoalAkreditasi', 'StandarAkreditasi.id', '=', 'SoalAkreditasi.id_standar')
                     ->where('SoalAkreditasi.id_standar', '=', $id)
                     ->get();
 
         $id_standar = $id;
-        return view('admin.standar.show_soal', compact('webtitle','id_standar','standar'));
+        return view('admin.standar.show_soal', compact('webtitle','id_standar','soal','standar'));
     }
 
     public function create(){
@@ -96,8 +97,10 @@ class StandarController extends Controller
     }
 
     public function delete($id){
+        DB::table('SoalAkreditasi')->where('id_standar',$id)->delete();
         DB::table('StandarAkreditasi')->where('id', $id)->delete();
+       
 
         return redirect()->route('standar');
     }
-}
+}     

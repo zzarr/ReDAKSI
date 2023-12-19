@@ -58,6 +58,9 @@ Route::prefix('admin')->group(function () {
 
     Route::get('/tambah_soal/{id}/{id_standar}', [SoalController::class, 'create'])->name('add_soal');
     Route::post('/simpan_soal/{id_standar}', [SoalController::class, 'insert'])->name('tambah_soal');
+    Route::get('/edit_soal/{idp}/{id}', [SoalController::class, 'edit'])->name('edit_soal');
+    Route::post('/update_soal/{idp}', [SoalController::class, 'update'])->name('update_soal');
+    Route::get('/hapus_soal/{idp}/{id}', [SoalController::class, 'delete'])->name('hapus_soal');
 
 });
 

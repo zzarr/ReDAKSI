@@ -12,9 +12,7 @@
                 <div class="card-body">
 
                     <a type="button" href="{{ route('add_standar') }}" class="btn btn-outline-primary"><i
-                            class="fa-solid fa-square-plus"></i></a>
-
-
+                            class="fa-solid fa-square-plus"></i> Tambah Standar</a>
 
                 </div>
             </div>

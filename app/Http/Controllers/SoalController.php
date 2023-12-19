@@ -29,11 +29,35 @@ class SoalController extends Controller
                 'E' => $request->input('E'),
                 'skor_butir' => $skorbtr
             ]);
-
-
         return redirect("/admin/show/{$id_standar}");
+    } 
+
+    public function edit($idp,$id){
+        $webtitle = "Standar Akreditasi";
+        $soal = DB::table('SoalAkreditasi')->where('idp',$idp)->get();
+
+        return view('admin.Soal.edit_soal', compact('webtitle','soal','idp','id'));
+
     }
 
-    
+    public function update(){
+
+    }
+
+    public function delete($id,$idp){
+        DB::table('SoalAkreditasi')
+            ->where('idp', '=', $idp)
+            ->update([
+                'pertanyaan' => null,
+                'A' => null,
+                'B' => null,
+                'C' => null,
+                'D' => null,
+                'E' => null,
+                
+            ]);
+        return redirect("/admin/show/{$id}");
+    }
+
 }
 
