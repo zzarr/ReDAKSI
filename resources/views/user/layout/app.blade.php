@@ -56,7 +56,7 @@
 
                         <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
                             data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
-                            <div class="sb-nav-link-icon"><i class="fa-solid fa-folder-tree"></i></div>
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-pen-to-square"></i></div>
                             Standar Akreditasi
                             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
@@ -64,11 +64,10 @@
                             data-bs-parent="#sidenavAccordion">
                             @foreach ($standar as $item)
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link">{{ $item->nm_standar }}</a>
+                                    <a class="nav-link" href="/user/soal/{{ $item->id}}">{{ $item->nm_standar }}</a>
                                 </nav>
                             @endforeach
-
-                        </div>
+                        </div> 
                     </div>
                 </div>
                 <div class="sb-sidenav-footer">

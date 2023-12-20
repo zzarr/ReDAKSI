@@ -28,9 +28,9 @@
                             <tr>
                                 <th>No</th>
                                 <th>Soal</th>
-                                <tTambah< /th>
-                                    <th>Edit</th>
-                                    <th>Hapus</th>
+                                <th>Tambah</th>
+                                <th>Edit</th>
+                                <th>Hapus</th>
                             </tr>
                         </tfoot>
                         <tbody>

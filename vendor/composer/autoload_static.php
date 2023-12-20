@@ -539,6 +539,7 @@ class ComposerStaticInit9c491b8531eec05ba41a11d9276a5749
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\DashboardControler' => __DIR__ . '/../..' . '/app/Http/Controllers/DashboardControler.php',
         'App\\Http\\Controllers\\JabatanController' => __DIR__ . '/../..' . '/app/Http/Controllers/JabatanController.php',
+        'App\\Http\\Controllers\\SoalController' => __DIR__ . '/../..' . '/app/Http/Controllers/SoalController.php',
         'App\\Http\\Controllers\\StandarController' => __DIR__ . '/../..' . '/app/Http/Controllers/StandarController.php',
         'App\\Http\\Controllers\\accountController' => __DIR__ . '/../..' . '/app/Http/Controllers/accountController.php',
         'App\\Http\\Controllers\\loginController' => __DIR__ . '/../..' . '/app/Http/Controllers/loginController.php',

@@ -8,6 +8,7 @@ use App\Http\Controllers\JabatanController;
 use App\Http\Controllers\loginController;
 use App\Http\Controllers\StandarController;
 use App\Http\Controllers\SoalController;
+use App\Http\Controllers\JawabanController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -66,4 +67,6 @@ Route::prefix('admin')->group(function () {
 
 Route::prefix('user')->group(function () {
     Route::get('/', [DashboardControler::class, 'index2'])->name('Dashboard_user');
+
+    Route::get('/soal/{id}', [JawabanController::class, 'soal']);
 });
