@@ -30,23 +30,21 @@ class StandarController extends Controller
 
     public function create(){
          $webtitle = "Standar Akreditasi";
-         $all = DB::table('StandarAkreditasi')->sum('bobot_standar');
-         $max = 100-$all;
-         return view('admin.standar.add_standar',compact('webtitle','max'));
+         $jml = DB::table('StandarAkreditasi')->sum('bobot_standar');
+         $max = 100 - $jml;
+         return view('admin.standar.add_standar',compact('webtitle', 'max'));
     }
 
     public function insert(Request $request){
-
-        $cek = DB::table('StandarAkreditasi')->count('*');
-        if($cek<1){
-             $id = 1;
+        $jml = DB::table('StandarAkreditasi')->count('*');
+        if($jml > 1){
+            $id = $jml+1;
         }
         else{
-           
-            $temp = DB::table('StandarAkreditasi')->where('id', $cek)->first('id');
-            $id = $temp->id + 1;
+            $id = 1;
         }
 
+        $noSoal = 0;
         if($id>1){
             $noSoalsebelum = DB::table('StandarAkreditasi')->where('id', $id-1)->first(['NoSoal']);
             $jmlsebelum = DB::table('StandarAkreditasi')->where('id', $id-1)->first(['jumlah_soal']);
@@ -72,12 +70,15 @@ class StandarController extends Controller
 
         DB::table('StandarAkreditasi')->insert($data);
 
-       
         $i = $noSoal;
         $NoSoal = array();
-        while ($i <= intval($request->input('jumlah_soal')) ) {
+        $j = 0;
+    
+        while ($j < intval($request->input('jumlah_soal')) ) {
             $NoSoal[] = $i;
             $i++;
+            $j++;
+
         }
 
         foreach($NoSoal as $no){

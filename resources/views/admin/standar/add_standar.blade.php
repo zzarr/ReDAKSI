@@ -8,7 +8,6 @@
                     <form action="{{ Route('insert_standar') }}" method="post">
                         {{ csrf_field() }}
                         <div class="row g-3">
-
                             <div class="col-sm-6">
                                 <label for="nm_standar">Nama Standar</label>
                                 <input type="text" class="form-control" name="nm_standar" aria-describedby="basic-addon1">

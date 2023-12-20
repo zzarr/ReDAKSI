@@ -15,6 +15,8 @@ class DashboardControler extends Controller
     }
 
     public function index2(){
-        
+        $webtitle = 'Dashboard';
+        $standar = DB::table('StandarAkreditasi')->get();
+        return view('user.dashboard', compact('webtitle', 'standar'));
     }
 }
