@@ -13,4 +13,10 @@ class DashboardControler extends Controller
         $arsip = DB::table('folders')->get();
         return view('admin.dashboard', compact('arsip', 'webtitle'));
     }
+
+    public function index2(){
+        $webtitle = 'Dashboard';
+        $standar = DB::table('StandarAkreditasi')->get();
+        return view('user.dashboard', compact('webtitle', 'standar'));
+    }
 }

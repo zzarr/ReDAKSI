@@ -6,7 +6,7 @@
                 <div class="card-header">tambah arsip</div>
                 <div class="card-body">
                     @foreach ($folders as $item)
-                        <form action="" method="post">
+                        <form action="{{ route('update_arsip', $item->id) }}" method="POST">
                             {{ csrf_field() }}
                             <div class="row g-3">
                                 <div class="col-sm-6">

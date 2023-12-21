@@ -54,6 +54,18 @@ class ArsipController extends Controller
         return view('admin.edit_folder',compact('folders','webtitle','arsip','jabatan'));
     }
 
+    public function update(Request $request, string $id){
+        DB::table('folders')->where('id', $id)->update([
+            'nama_folder' => $request->input('arsip'),
+            'hak_akses' => $request->input('hak_akses'),
+            'updated_at' => now()
+        ]);
+
+        return redirect()->route('folder');
+                        
+
+    }
+
     public function hapus_arsip($id){
        
         DB::table('folders')->where('id', $id)->delete();

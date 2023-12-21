@@ -8,8 +8,9 @@
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('DataTables-1.13.4/css/jquery.dataTables.min.css') }}">
+
     @vite(['resources/js/app.js'])
-    <title></title>
+    <title>{{ isset($webtitle) ? $webtitle : 'ReDAKSI' }}</title>
 </head>
 
 <body class="sb-nav-fixed">
@@ -21,11 +22,11 @@
         <!-- Navbar Brand-->
         <a class="navbar-brand ps-3" href="index.html">SMP MKGR</a>
         <!-- Sidebar Toggle-->
-        <button class="btn btn-link btn-sm order-lg-0 me-lg-0 order-1 me-4" id="sidebarToggle" href="#!"><i
+        <button class="btn btn-link btn-sm order-lg-0 me-lg-0 order-1 me-4 ms-auto" id="sidebarToggle" href="#!"><i
                 class="fas fa-bars"></i></button>
         <!-- Navbar-->
         <ul class="navbar-nav ms-md-0 me-lg-4 me-3 ms-auto">
-            <li class="nav-item dropdown">
+            <li class="nav-item dropdown ms-auto">
                 <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
                     data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
@@ -43,44 +44,37 @@
         <div id="layoutSidenav_nav">
             <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                 <div class="sb-sidenav-menu">
-                    <div class="nav">
+                    <div class="nav p-2">
                         <div class="sb-sidenav-menu-heading">Core</div>
-                        <a class="nav-link" href="index.html">
-                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                        <a class="nav-link {{ $webtitle == 'Dashboard' ? 'active bg-warning ' : 'btn btn-outline-warning' }} mt-2 rounded"
+                            href="{{ route('dashboard') }}">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-gauge-high"></i></div>
                             Dashboard
                         </a>
-                        <a class="nav-link" href="{{ route('add_account') }}">
-                            <div class="sb-nav-link-icon"><i class="fa-solid fa-user-plus"></i></div>
-                            Tambah akun
-                        </a>
-                        <a class="nav-link" href="{{ route('add_folder') }}">
-                            <div class="sb-nav-link-icon"><i class="fa-solid fa-folder-plus"></i></div>
-                            Tambah Arsip
-                        </a>
-                        <a class="nav-link" href="{{ route('list') }}">
-                            <div class="sb-nav-link-icon"><i class="fa-solid fa-box-archive"></i></div>
-                            List Arsip
-                        </a>
+
                         <hr class="my-4">
 
                         <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
                             data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
-                            <div class="sb-nav-link-icon"><i class="fa-solid fa-folder-tree"></i></div>
-                            Arsip
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-pen-to-square"></i></div>
+                            Standar Akreditasi
                             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
                         <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne"
                             data-bs-parent="#sidenavAccordion">
-                            <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="/arsip">kurikulum</a>
-                                <a class="nav-link" href="layout-sidenav-light.html">Sarana prasarana</a>
-                            </nav>
-                        </div>
+                            @foreach ($standar as $item)
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="/user/soal/{{ $item->id}}">{{ $item->nm_standar }}</a>
+                                </nav>
+                            @endforeach
+                        </div> 
                     </div>
                 </div>
                 <div class="sb-sidenav-footer">
-
+ppppss
                 </div>
+
+                
             </nav>
         </div>
         <div id="layoutSidenav_content">
@@ -94,4 +88,3 @@
 </body>
 
 </html>
-

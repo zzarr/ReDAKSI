@@ -8,7 +8,6 @@
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('DataTables-1.13.4/css/jquery.dataTables.min.css') }}">
-    
     @vite(['resources/js/app.js'])
     <title>{{ isset($webtitle) ? $webtitle : 'ReDAKSI' }}</title>
 </head>
@@ -47,7 +46,7 @@
                     <div class="nav p-2">
                         <div class="sb-sidenav-menu-heading">Core</div>
                         <a class="nav-link {{ $webtitle == 'Dashboard' ? 'active bg-warning ' : 'btn btn-outline-warning' }} mt-2 rounded"
-                            href="{{ route('DashboardAdmin') }}">
+                            href="{{ route('dashboard') }}">
                             <div class="sb-nav-link-icon"><i class="fa-solid fa-gauge-high"></i></div>
                             Dashboard
                         </a>
@@ -101,7 +100,7 @@
 
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.js"
             crossorigin="anonymous"></script>
-        
+        <script src="{{ asset('DataTables-1.13.4/js/dataTables.dataTables.min.js') }}"></script>
         <script src="{{ asset('js/script.js') }}"></script>
 </body>
 
