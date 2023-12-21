@@ -30,7 +30,7 @@ class loginController extends Controller
             if (password_verify($request->input('password'), $userData->password)) {
                 // Password cocok, lakukan redirect atau tindakan sesuai dengan user role
                 if ($userData->leveluser == 'admin') {
-                    return redirect()->route('dashboard')->withInput();
+                    return redirect()->route('DashboardAdmin')->withInput();
                 } elseif ($userData->leveluser == 'user') {
                     return redirect()->route('user.dashboard')->withInput();
                 }

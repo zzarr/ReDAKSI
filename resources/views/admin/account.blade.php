@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <h4 class="mb-3">Akun</h4>
             <ol class="breadcrumb mb-4">
-                <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('DashboardAdmin') }}">Dashboard</a></li>
                 <li class="breadcrumb-item active">Akun</li>
             </ol>
             <div class="card mb-4">

@@ -46,7 +46,7 @@
                     <div class="nav p-2">
                         <div class="sb-sidenav-menu-heading">Core</div>
                         <a class="nav-link {{ $webtitle == 'Dashboard' ? 'active bg-warning ' : 'btn btn-outline-warning' }} mt-2 rounded"
-                            href="{{ route('dashboard') }}">
+                            href="{{ route('DashboardAdmin') }}">
                             <div class="sb-nav-link-icon"><i class="fa-solid fa-gauge-high"></i></div>
                             Dashboard
                         </a>

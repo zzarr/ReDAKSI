@@ -19,30 +19,32 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [loginController::class, 'login'])->name('login');
-Route::post('/', [loginController::class, 'getData_login'])->name('login');
+Route::middleware('web')->group(function () {
+    Route::get('/', [loginController::class, 'login'])->name('login');
+    Route::post('/', [loginController::class, 'getData_login'])->name('login');
+});
 
+Route::group(['middleware' => 'auth'], function () {
+    Route::prefix('admin')->group(function () {
+        Route::get('/dashboard', [DashboardControler::class, 'index'])->name('DashboardAdmin');
+        Route::get('/dashboard', [DashboardControler::class, 'index'])->name('DashboardAdmin');
 
-Route::prefix('admin')->group(function () {
-    Route::get('/', [DashboardControler::class, 'index'])->name('dashboard');
+        Route::resource('jabatan', JabatanController::class);
 
-    Route::resource('jabatan', JabatanController::class);
+        Route::get('/account', [accountController::class, 'index'])->name('account');
+        Route::get('/add_account', [accountController::class, 'create'])->name('add_account');
+        Route::post('/add_account', [accountController::class, 'addData'])->name('add_account');
+        Route::get('/update_account/{iduser}', [accountController::class, 'update'])->name('update_account');
+        Route::post('/update_account/{iduser}', [accountController::class, 'updateData'])->name('updateaccount');
+        Route::delete('/delete_account/{iduser}', [accountController::class, 'delete'])->name('delete_account');
 
-    Route::get('/account', [accountController::class, 'index'])->name('account');
-    Route::get('/add_account', [accountController::class, 'create'])->name('add_account');
-    Route::post('/add_account', [accountController::class, 'addData'])->name('add_account');
-    Route::get('/update_account/{iduser}', [accountController::class, 'update'])->name('update_account');
-    Route::post('/update_account/{iduser}', [accountController::class, 'updateData'])->name('updateaccount');
-    Route::delete('/delete_account/{iduser}', [accountController::class, 'delete'])->name('delete_account');
-
-    /*Route::get('/update_account', [accountController::class, 'update'])->name('update_account');
-    Route::post('/update_account', [accountController::class, 'updateData'])->name('update_account');*/
-
-    Route::get('/folder', [ArsipController::class, 'index'])->name('folder');
-    Route::get('/add_folder', [ArsipController::class, 'add_arsip'])->name('add_folder');
-    Route::post('/simpan', [ArsipController::class, 'tambah_arsip'])->name('tambah_arsip');
-    Route::get('/hapus/{id_nya}', [ArsipController::class, 'hapus_Arsip'])->name('hapus_arsip');
-    Route::get('/edit/{id}', [ArsipController::class, 'edit'])->name('edit');
+        Route::get('/folder', [ArsipController::class, 'index'])->name('folder');
+        Route::get('/add_folder', [ArsipController::class, 'add_arsip'])->name('add_folder');
+        Route::post('/simpan', [ArsipController::class, 'tambah_arsip'])->name('tambah_arsip');
+        Route::get('/hapus/{id_nya}', [ArsipController::class, 'hapus_Arsip'])->name('hapus_arsip');
+        Route::get('/edit/{id}', [ArsipController::class, 'edit'])->name('edit');
+    });
+    // Tambahkan rute lainnya yang memerlukan otentikasi di sini
 });
 
 Route::prefix('user')->group(function () {
