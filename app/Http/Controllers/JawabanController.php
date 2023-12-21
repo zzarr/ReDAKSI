@@ -12,4 +12,11 @@ class JawabanController extends Controller
         $standar = DB::table('StandarAkreditasi')->get();
         return view('user.soal.soal', compact('webtitle','soal','standar'));
     }
+
+    public function jawabSoal($idp){
+        $webtitle = 'Soal';
+        $soal = DB::table('SoalAkreditasi')->where('idp', $idp)->get();
+        $standar = DB::table('StandarAkreditasi')->get();
+        return view('user.soal.jawab_soal', compact('webtitle', 'soal','standar'));
+    }
 }

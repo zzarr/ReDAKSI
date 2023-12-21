@@ -48,7 +48,6 @@ Route::prefix('admin')->group(function () {
     Route::get('/edit/{id}', [ArsipController::class, 'edit'])->name('edit');
     Route::post('/update_arsip/{id}', [ArsipController::class, 'update'])->name('update_arsip');
   
-
     Route::get('/standar_akreditasi', [StandarController::class, 'index'])->name('standar');
     Route::get('/tambah_standar', [StandarController::class, 'create'])->name('add_standar');
     Route::post('/insert_standar', [StandarController::class, 'insert'])->name('insert_standar');
@@ -69,4 +68,5 @@ Route::prefix('user')->group(function () {
     Route::get('/', [DashboardControler::class, 'index2'])->name('Dashboard_user');
 
     Route::get('/soal/{id}', [JawabanController::class, 'soal']);
+    Route::get('/jawab_soal/{idp}', [JawabanController::class, 'jawabSoal']);
 });
