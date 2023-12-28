@@ -9,6 +9,7 @@ use App\Http\Controllers\loginController;
 use App\Http\Controllers\StandarController;
 use App\Http\Controllers\SoalController;
 use App\Http\Controllers\JawabanController;
+use App\Http\Controllers\KesiapanAkreditasi;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -69,4 +70,7 @@ Route::prefix('user')->group(function () {
 
     Route::get('/soal/{id}', [JawabanController::class, 'soal']);
     Route::get('/jawab_soal/{idp}', [JawabanController::class, 'jawabSoal']);
+    Route::post('/simpan_jawaban', [JawabanController::class, 'simpanJwb'])->name('simpan_jawaban');
+
+    Route::get('/kesiapan_standar_akreditasi', [KesiapanAkreditasi::class, 'index'])->name('kesiapan');
 });

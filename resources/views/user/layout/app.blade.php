@@ -55,40 +55,52 @@
                         <hr class="my-4">
 
                         <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
-                        data-bs-target="#collapseLayoutsStandar" aria-expanded="false" aria-controls="collapseLayoutsStandar">
-                         <div class="sb-nav-link-icon"><i class="fa-solid fa-pen-to-square"></i></div>
-                         Standar Akreditasi
-                         <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                     </a>
-                     <div class="collapse" id="collapseLayoutsStandar" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                         @foreach ($standar as $item)
-                             <nav class="sb-sidenav-menu-nested nav">
-                                 <a class="nav-link" href="/user/soal/{{ $item->id}}">{{ $item->nm_standar }}</a>
-                             </nav>
-                         @endforeach
-                     </div>
-                     <hr class="my-2">
-                     <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
-                        data-bs-target="#collapseLayoutsJawaban" aria-expanded="false" aria-controls="collapseLayoutsJawaban">
-                         <div class="sb-nav-link-icon"><i class="fa-solid fa-pen-to-square"></i></div>
-                         Jawaban
-                         <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                     </a>
-                     <div class="collapse" id="collapseLayoutsJawaban" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
-                         @foreach ($standar as $item)
-                             <nav class="sb-sidenav-menu-nested nav">
-                                 <a class="nav-link" href="/user/soal/{{ $item->id}}">{{ $item->nm_standar }}</a>
-                             </nav>
-                         @endforeach
-                     </div>
-                     
+                            data-bs-target="#collapseLayoutsStandar" aria-expanded="false"
+                            aria-controls="collapseLayoutsStandar">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-pen-to-square"></i></div>
+                            Standar Akreditasi
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapseLayoutsStandar" aria-labelledby="headingOne"
+                            data-bs-parent="#sidenavAccordion">
+                            @foreach ($standar as $item)
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link"
+                                        href="/user/soal/{{ $item->id }}">{{ $item->nm_standar }}</a>
+                                </nav>
+                            @endforeach
+                        </div>
+                        <hr class="my-2">
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                            data-bs-target="#collapseLayoutsJawaban" aria-expanded="false"
+                            aria-controls="collapseLayoutsJawaban">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-pen-to-square"></i></div>
+                            Jawaban
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapseLayoutsJawaban" aria-labelledby="headingTwo"
+                            data-bs-parent="#sidenavAccordion">
+                            @foreach ($standar as $item)
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link"
+                                        href="/user/soal/{{ $item->id }}">{{ $item->nm_standar }}</a>
+                                </nav>
+                            @endforeach
+                        </div>
+
+                        <hr class="my-2">
+                        <a class="nav-link {{ $webtitle == 'Kesiapan Standar Akreditasi' ? 'active bg-warning ' : 'btn btn-outline-warning' }} mt-2 rounded"
+                            href="{{ route('kesiapan') }}">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-star"></i></div>
+                            Kesiapan Standar Akreditasi 
+                        </a>
+
                     </div>
                 </div>
                 <div class="sb-sidenav-footer">
-ppppss
                 </div>
 
-                
+
             </nav>
         </div>
         <div id="layoutSidenav_content">

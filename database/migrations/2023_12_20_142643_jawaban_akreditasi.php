@@ -14,10 +14,11 @@ return new class extends Migration
         Schema::create('JawabanAkreditasi', function (Blueprint $table) {
             $table->id('idj');
             $table->unsignedBigInteger('id_pertanyaan')->nullable();
+            $table->unsignedBigInteger('id_standar')->nullable();
             $table->text('jawaban');
-            $table->char('pilihan');
             $table->integer('score');
             $table->foreign('id_pertanyaan')->references('idp')->on('SoalAkreditasi');
+            $table->foreign('id_standar')->references('id')->on('StandarAkreditasi');
             $table->timestamps();
         });
     }
