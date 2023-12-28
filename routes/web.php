@@ -69,4 +69,5 @@ Route::prefix('user')->group(function () {
 
     Route::get('/soal/{id}', [JawabanController::class, 'soal']);
     Route::get('/jawab_soal/{idp}', [JawabanController::class, 'jawabSoal']);
+    Route::post('/simpan_jawaban', [JawabanController::class, 'simpanJwb'])->name('simpan_jawaban');
 });
