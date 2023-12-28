@@ -31,9 +31,7 @@
                             <input type="radio" name="jawaban" value="1">
                             <label for="">E. {{ $item->E }}</label>
                         </div>
-
                     </form>
-                
                     @endforeach
                 </div>
             </div>
