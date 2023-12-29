@@ -37,7 +37,7 @@ class StandarController extends Controller
 
     public function insert(Request $request){
         $jml = DB::table('StandarAkreditasi')->count('*');
-        if($jml > 1){
+        if($jml >= 1){
             $id = $jml+1;
         }
         else{

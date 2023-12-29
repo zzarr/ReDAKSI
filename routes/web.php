@@ -1,6 +1,5 @@
 <?php
 
-
 use App\Http\Controllers\ArsipController;
 use App\Http\Controllers\accountController;
 use App\Http\Controllers\DashboardControler;
@@ -9,6 +8,7 @@ use App\Http\Controllers\loginController;
 use App\Http\Controllers\StandarController;
 use App\Http\Controllers\SoalController;
 use App\Http\Controllers\JawabanController;
+use App\Http\Controllers\KesiapanAkreditasi;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,10 +27,10 @@ Route::middleware('web')->group(function () {
     Route::post('/', [loginController::class, 'getData_login'])->name('login');
 });
 
-Route::group(['middleware' => 'auth'], function () {
-    Route::prefix('admin')->group(function () {
-        Route::get('/dashboard', [DashboardControler::class, 'index'])->name('DashboardAdmin');
-        Route::get('/dashboard', [DashboardControler::class, 'index'])->name('DashboardAdmin');
+Route::prefix('admin')
+    ->middleware(['auth'])
+    ->group(function () {
+        Route::get('/dashboard_admin', [DashboardControler::class, 'index'])->name('DashboardAdmin');
 
         Route::resource('jabatan', JabatanController::class);
 
@@ -45,11 +45,11 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/add_account', [accountController::class, 'create'])->name('add_account');
         Route::post('/add_account', [accountController::class, 'addData'])->name('add_account');
         Route::get('/update_account/{iduser}', [accountController::class, 'update'])->name('update_account');
-        Route::post('/update_account/{iduser}', [accountController::class, 'updateData'])->name('updateaccount');
+        Route::post('/update_account/{iduser}', [accountController::class, 'updateData'])->name('update_account');
         Route::delete('/delete_account/{iduser}', [accountController::class, 'delete'])->name('delete_account');
 
         /*Route::get('/update_account', [accountController::class, 'update'])->name('update_account');
-    Route::post('/update_account', [accountController::class, 'updateData'])->name('update_account');*/
+         Route::post('/update_account', [accountController::class, 'updateData'])->name('update_account');*/
 
         Route::get('/folder', [ArsipController::class, 'index'])->name('folder');
         Route::get('/add_folder', [ArsipController::class, 'add_arsip'])->name('add_folder');
@@ -57,7 +57,6 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/hapus/{id_nya}', [ArsipController::class, 'hapus_Arsip'])->name('hapus_arsip');
         Route::get('/edit/{id}', [ArsipController::class, 'edit'])->name('edit');
         Route::post('/update_arsip/{id}', [ArsipController::class, 'update'])->name('update_arsip');
-
 
         Route::get('/standar_akreditasi', [StandarController::class, 'index'])->name('standar');
         Route::get('/tambah_standar', [StandarController::class, 'create'])->name('add_standar');
@@ -73,10 +72,15 @@ Route::group(['middleware' => 'auth'], function () {
         Route::post('/update_soal/{idp}', [SoalController::class, 'update'])->name('update_soal');
         Route::get('/hapus_soal/{idp}/{id}', [SoalController::class, 'delete'])->name('hapus_soal');
     });
-});
 
-Route::prefix('user')->group(function () {
-    Route::get('/', [DashboardControler::class, 'index2'])->name('Dashboard_user');
+Route::prefix('user')
+    ->middleware(['auth'])
+    ->group(function () {
+        Route::get('/dashboard_user', [DashboardControler::class, 'index2'])->name('Dashboard_user');
 
-    Route::get('/soal/{id}', [JawabanController::class, 'soal']);
-});
+        Route::get('/soal/{id}', [JawabanController::class, 'soal']);
+        Route::get('/jawab_soal/{idp}', [JawabanController::class, 'jawabSoal']);
+        Route::post('/simpan_jawaban', [JawabanController::class, 'simpanJwb'])->name('simpan_jawaban');
+
+        Route::get('/kesiapan_standar_akreditasi', [KesiapanAkreditasi::class, 'index'])->name('kesiapan');
+    });
