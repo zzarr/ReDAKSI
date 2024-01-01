@@ -1,4 +1,4 @@
-@extends('user.layout.app')
+@extends('guru.layout.app')
 
 @section('content')
     <main>

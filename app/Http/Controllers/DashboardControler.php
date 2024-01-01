@@ -22,4 +22,9 @@ class DashboardControler extends Controller
         $standar = DB::table('StandarAkreditasi')->get();
         return view('user.dashboard', compact('webtitle', 'standar'));
     }
+
+    public function index3(){
+        $webtitle = 'Dashboard';
+        return view('guru.dashboar', compact('webtitle'));
+    }
 }

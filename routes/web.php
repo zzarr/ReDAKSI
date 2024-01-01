@@ -28,7 +28,7 @@ Route::get('/login', [loginController::class, 'login'])->name('login');
 Route::post('/login_proses', [loginController::class, 'getData_login'])->name('login_proses');
 
 Route::prefix('admin')->group(function () {
-    Route::middleware('admin')->group(function () {
+    /*Route::middleware('admin')->group(function () {*/
         Route::get('/dashboard_admin', [DashboardControler::class, 'index'])->name('DashboardAdmin');
 
         Route::resource('jabatan', JabatanController::class);
@@ -63,7 +63,7 @@ Route::prefix('admin')->group(function () {
         Route::get('/edit_soal/{idp}/{id}', [SoalController::class, 'edit'])->name('edit_soal');
         Route::post('/update_soal/{idp}', [SoalController::class, 'update'])->name('update_soal');
         Route::get('/hapus_soal/{idp}/{id}', [SoalController::class, 'delete'])->name('hapus_soal');
-    });
+    //});
 });
 
 Route::prefix('user')
@@ -79,3 +79,9 @@ Route::prefix('user')
 
         Route::get('/kesiapan_standar_akreditasi', [KesiapanAkreditasi::class, 'index'])->name('kesiapan');
     });
+
+    
+
+Route::prefix('guru')->group(function(){
+    Route:: get('dashboard_guru',[DashboardControler::class, 'index3'])->name('dashboard_guru');
+});

@@ -47,32 +47,21 @@
                     <div class="nav p-2">
                         <div class="sb-sidenav-menu-heading">Core</div>
                         <a class="nav-link {{ $webtitle == 'Dashboard' ? 'active bg-warning ' : 'btn btn-outline-warning' }} mt-2 rounded"
-                            href="{{ route('DashboardAdmin') }}">
+                            href="{{ route('Dashboard_user') }}">
                             <div class="sb-nav-link-icon"><i class="fa-solid fa-gauge-high"></i></div>
                             Dashboard
                         </a>
-                        <a class="nav-link {{ $webtitle == 'Jabatan' ? 'active bg-warning ' : 'btn btn-outline-warning' }} mt-2 rounded"
-                            href="{{ url('admin/jabatan') }}">
-                            <div class="sb-nav-link-icon"><i class="fa-solid fa-user-gear"></i></div>
-                            jabatan
-                        </a>
-                        <a class="nav-link {{ $webtitle == 'Accoun' ? 'active bg-warning' : 'btn btn-outline-warning' }} mt-2 rounded"
-                            href="{{ route('account') }}">
-                            <div class="sb-nav-link-icon"><i class="fa-solid fa-users"></i></div>
-                            akun
-                        </a>
 
-                        <a class="nav-link {{ $webtitle == 'Standar Akreditasi' ? 'active bg-warning ' : 'btn btn-outline-warning' }} mt-2 rounded"
-                            href="{{ route('standar') }}">
-                            <div class="sb-nav-link-icon"><i class="fa-solid fa-file-pen"></i></div>
-                            Standar Akreditasi
-                        </a>
+                        <hr class="my-4">
 
-                        < </div>
-                    </div>
-                    <div class="sb-sidenav-footer">
+
 
                     </div>
+                </div>
+                <div class="sb-sidenav-footer">
+                </div>
+
+
             </nav>
         </div>
         <div id="layoutSidenav_content">
