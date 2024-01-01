@@ -22,7 +22,7 @@ class loginController extends Controller
         ]);
 
         $userData = DB::table('users')
-            ->select('username', 'password', 'leveluser')
+            ->select('id', 'username', 'password', 'leveluser')
             ->whereRaw('BINARY username = ?', $request->input('username'))
             ->first();
 
@@ -32,16 +32,38 @@ class loginController extends Controller
                 // Password cocok, lakukan redirect atau tindakan sesuai dengan user role
                 if ($userData->leveluser == 'admin') {
                     if (Auth::guard('admin')->attempt(['username' => $userData->username, 'password' => $credentials['password']])) {
-                        $request->session()->regenerate();
+                        // Mengatur sesi pengguna dengan level 'admin'
+                        $request->session()->put('admin', ['id' => $userData->id, 'expires_at' => now()->addDay()]);
+
+                        // Mengambil waktu kadaluarsa sesi dari sesi 'admin'
+                        $expiresAt = $request->session()->get('admin.expires_at');
+
+                        // Mengambil waktu saat ini
+                        $currentTime = now();
+
+                        // Menghitung selisih menit antara waktu kadaluarsa dan waktu saat ini
+                        $minutesRemaining = $currentTime->diffInMinutes($expiresAt);
+
                         return redirect()
                             ->route('DashboardAdmin')
                             ->withInput();
                     }
                 } elseif ($userData->leveluser == 'user') {
                     if (Auth::guard('user')->attempt(['username' => $userData->username, 'password' => $credentials['password']])) {
-                        $request->session()->regenerate();
+                        // Mengatur sesi pengguna dengan level 'user'
+                        $request->session()->put('user', ['id' => $userData->id, 'expires_at' => now()->addDay()]);
+
+                        // Mengambil waktu kadaluarsa sesi dari sesi 'admin'
+                        $expiresAt = $request->session()->get('user.expires_at');
+
+                        // Mengambil waktu saat ini
+                        $currentTime = now();
+
+                        // Menghitung selisih menit antara waktu kadaluarsa dan waktu saat ini
+                        $minutesRemaining = $currentTime->diffInMinutes($expiresAt);
+
                         return redirect()
-                            ->route('user.dashboard')
+                            ->route('DashboardUser')
                             ->withInput();
                     }
                 }
