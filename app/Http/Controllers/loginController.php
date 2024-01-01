@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class loginController extends Controller
@@ -15,7 +16,7 @@ class loginController extends Controller
     }
     public function getData_login(Request $request)
     {
-        $request->validate([
+        $credentials = $request->validate([
             'username' => 'required|string|max:255',
             'password' => 'required|string',
         ]);
@@ -30,13 +31,19 @@ class loginController extends Controller
             if (password_verify(strval($request->input('password')), $userData->password)) {
                 // Password cocok, lakukan redirect atau tindakan sesuai dengan user role
                 if ($userData->leveluser == 'admin') {
-                    return redirect()
-                        ->route('DashboardAdmin')
-                        ->withInput();
+                    if (Auth::guard('admin')->attempt(['username' => $userData->username, 'password' => $credentials['password']])) {
+                        $request->session()->regenerate();
+                        return redirect()
+                            ->route('DashboardAdmin')
+                            ->withInput();
+                    }
                 } elseif ($userData->leveluser == 'user') {
-                    return redirect()
-                        ->route('user.dashboard')
-                        ->withInput();
+                    if (Auth::guard('user')->attempt(['username' => $userData->username, 'password' => $credentials['password']])) {
+                        $request->session()->regenerate();
+                        return redirect()
+                            ->route('user.dashboard')
+                            ->withInput();
+                    }
                 }
             } else {
                 // Password tidak cocok

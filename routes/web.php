@@ -28,7 +28,7 @@ Route::get('/login', [loginController::class, 'login'])->name('login');
 Route::post('/login_proses', [loginController::class, 'getData_login'])->name('login_proses');
 
 Route::prefix('admin')->group(function () {
-    Route::middleware(['auth', 'admin'])->group(function () {
+    Route::middleware('admin')->group(function () {
         Route::get('/dashboard_admin', [DashboardControler::class, 'index'])->name('DashboardAdmin');
 
         Route::resource('jabatan', JabatanController::class);
