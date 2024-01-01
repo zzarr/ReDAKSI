@@ -12,7 +12,7 @@
     <!-- FeatherIcon -->
     <script src="https://unpkg.com/feather-icons"></script>
 
-    <title>{{ isset($webtitle) ? $webtitle : 'Login' }}</title>
+    <title>{{ $webtitle }}</title>
 </head>
 
 <body>
@@ -36,7 +36,7 @@
             </a>
 
             <div class="mx-24 mt-20 justify-center md:mx-28 md:mt-24">
-                <form action="{{ route('login') }}" method="POST">
+                <form action="{{ route('login_proses') }}" method="POST">
                     @csrf
                     @error('gagal')
                         <div class="my-2 border-y-4 border-yellow-500 bg-slate-700 py-1.5" id="alert" role="alert">
@@ -50,19 +50,19 @@
                     @enderror
                     <h2 class="mb-4 pb-4 text-xl font-semibold text-black lg:text-2xl">Login</h2>
                     <div class="mb-2 md:col-span-2">
-                        <label for="Username"
+                        <label for="username"
                             class="block text-sm font-medium leading-6 text-black md:text-base">Username</label>
                         <div class="mt-2">
-                            <input type="text" name="username" id="username" required
+                            <input type="text" name="username" id="username" autocomplete="off" required
                                 class="block w-full cursor-text rounded-md border border-amber-300 px-4 py-1.5 text-sm text-black hover:border-blue-600 focus:border-blue-600 sm:leading-6 md:text-base" />
                         </div>
                     </div>
 
                     <div class="mb-8 md:col-span-2">
-                        <label for="Password"
+                        <label for="password"
                             class="block text-sm font-medium leading-6 text-black md:text-base">Password</label>
                         <div class="mt-2">
-                            <input type="password" name="password" id="password" required
+                            <input type="password" name="password" id="password" autocomplete="off" required
                                 class="block w-full cursor-text rounded-md border border-amber-300 px-4 py-1.5 text-sm text-black hover:border-blue-600 focus:border-blue-600 sm:leading-6 md:text-base" />
                         </div>
                     </div>

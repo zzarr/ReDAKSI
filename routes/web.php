@@ -22,30 +22,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('web')->group(function () {
-    Route::get('/', [loginController::class, 'login'])->name('login');
-    Route::post('/', [loginController::class, 'getData_login'])->name('login');
-});
+Route::redirect('/', '/login');
 
-Route::prefix('admin')
-    ->middleware(['auth'])
-    ->group(function () {
+Route::get('/login', [loginController::class, 'login'])->name('login');
+Route::post('/login_proses', [loginController::class, 'getData_login'])->name('login_proses');
+
+Route::prefix('admin')->group(function () {
+    Route::middleware(['auth', 'admin'])->group(function () {
         Route::get('/dashboard_admin', [DashboardControler::class, 'index'])->name('DashboardAdmin');
 
         Route::resource('jabatan', JabatanController::class);
 
         Route::get('/account', [accountController::class, 'index'])->name('account');
         Route::get('/add_account', [accountController::class, 'create'])->name('add_account');
-        Route::post('/add_account', [accountController::class, 'addData'])->name('add_account');
+        Route::post('/add_account', [accountController::class, 'addData'])->name('padd_account');
         Route::get('/update_account/{iduser}', [accountController::class, 'update'])->name('update_account');
         Route::post('/update_account/{iduser}', [accountController::class, 'updateData'])->name('updateaccount');
-        Route::delete('/delete_account/{iduser}', [accountController::class, 'delete'])->name('delete_account');
-
-        Route::get('/account', [accountController::class, 'index'])->name('account');
-        Route::get('/add_account', [accountController::class, 'create'])->name('add_account');
-        Route::post('/add_account', [accountController::class, 'addData'])->name('add_account');
-        Route::get('/update_account/{iduser}', [accountController::class, 'update'])->name('update_account');
-        Route::post('/update_account/{iduser}', [accountController::class, 'updateData'])->name('update_account');
         Route::delete('/delete_account/{iduser}', [accountController::class, 'delete'])->name('delete_account');
 
         /*Route::get('/update_account', [accountController::class, 'update'])->name('update_account');
@@ -72,6 +64,7 @@ Route::prefix('admin')
         Route::post('/update_soal/{idp}', [SoalController::class, 'update'])->name('update_soal');
         Route::get('/hapus_soal/{idp}/{id}', [SoalController::class, 'delete'])->name('hapus_soal');
     });
+});
 
 Route::prefix('user')
     ->middleware(['auth'])
