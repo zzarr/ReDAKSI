@@ -47,7 +47,7 @@
                     <div class="nav p-2">
                         <div class="sb-sidenav-menu-heading">Core</div>
                         <a class="nav-link {{ $webtitle == 'Dashboard' ? 'active bg-warning ' : 'btn btn-outline-warning' }} mt-2 rounded"
-                            href="{{ route('dashboard') }}">
+                            href="{{ route('Dashboard_user') }}">
                             <div class="sb-nav-link-icon"><i class="fa-solid fa-gauge-high"></i></div>
                             Dashboard
                         </a>
@@ -74,7 +74,7 @@
                         <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
                             data-bs-target="#collapseLayoutsJawaban" aria-expanded="false"
                             aria-controls="collapseLayoutsJawaban">
-                            <div class="sb-nav-link-icon"><i class="fa-solid fa-pen-to-square"></i></div>
+                            <div class="sb-nav-link-icon"><i class="fas fa-chart-bar me-1"></i></i></div>
                             Jawaban
                             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
@@ -83,7 +83,7 @@
                             @foreach ($standar as $item)
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link"
-                                        href="/user/soal/{{ $item->id }}">{{ $item->nm_standar }}</a>
+                                        href="/user/jawaban/{{ $item->id }}">{{ $item->nm_standar }}</a>
                                 </nav>
                             @endforeach
                         </div>
@@ -92,7 +92,7 @@
                         <a class="nav-link {{ $webtitle == 'Kesiapan Standar Akreditasi' ? 'active bg-warning ' : 'btn btn-outline-warning' }} mt-2 rounded"
                             href="{{ route('kesiapan') }}">
                             <div class="sb-nav-link-icon"><i class="fa-solid fa-star"></i></div>
-                            Kesiapan Standar Akreditasi 
+                            Kesiapan Standar Akreditasi
                         </a>
 
                     </div>
