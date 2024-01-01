@@ -12,7 +12,7 @@
     <!-- FeatherIcon -->
     <script src="https://unpkg.com/feather-icons"></script>
 
-    <title>{{ isset($webtitle) ? $webtitle : 'Login' }}</title>
+    <title>{{ $webtitle }}</title>
 </head>
 
 <body>
@@ -22,21 +22,21 @@
                 class="hidden h-screen w-full object-cover md:block" />
         </div>
 
-        <div class="login overflow-y-auto h-full md:h-screen">
-            <div class="mx-24 mb-24 mt-8 flex columns-2 items-center justify-start gap-8 md:mx-28 md:mb-28">
+        <div class="login h-full overflow-y-auto md:h-screen">
+            <div class="mx-24 mb-20 mt-8 flex columns-2 items-center justify-start gap-8 md:mx-28 md:mb-24">
                 <img src="{{ asset('img/logo2.png') }}" alt="Logo MKGR" class="w-16 lg:w-20" />
-                <span class="text-2xl font-bold lg:text-3xl">SMP MKGR</span>
+                <a href="{{ route('login') }}" class="text-2xl font-bold lg:text-3xl">SMP MKGR</a>
             </div>
 
-            <div class="text-center">
+            <a href="{{ route('login') }}" class="text-center">
                 <div class="text-4xl font-bold md:text-5xl">ReDAKSI</div>
                 <div class="text-sm font-semibold md:text-xl">
                     Rekap Data Akreditasi
                 </div>
-            </div>
+            </a>
 
-            <div class="mx-24 mt-24 justify-center md:mx-28 md:mt-28">
-                <form action="{{ route('login') }}" method="POST">
+            <div class="mx-24 mt-20 justify-center md:mx-28 md:mt-24">
+                <form action="{{ route('login_proses') }}" method="POST">
                     @csrf
                     @error('gagal')
                         <div class="my-2 border-y-4 border-yellow-500 bg-slate-700 py-1.5" id="alert" role="alert">
@@ -50,25 +50,26 @@
                     @enderror
                     <h2 class="mb-4 pb-4 text-xl font-semibold text-black lg:text-2xl">Login</h2>
                     <div class="mb-2 md:col-span-2">
-                        <label for="Username"
+                        <label for="username"
                             class="block text-sm font-medium leading-6 text-black md:text-base">Username</label>
                         <div class="mt-2">
-                            <input type="text" name="username" id="username" required
-                                class="block w-full px-4 rounded-md py-1.5 text-black border border-amber-300 cursor-text hover:border-blue-600 focus:border-blue-600 text-sm md:text-base sm:leading-6" />
+                            <input type="text" name="username" id="username" autocomplete="off" required
+                                class="block w-full cursor-text rounded-md border border-amber-300 px-4 py-1.5 text-sm text-black hover:border-blue-600 focus:border-blue-600 sm:leading-6 md:text-base" />
                         </div>
                     </div>
 
                     <div class="mb-8 md:col-span-2">
-                        <label for="Password"
+                        <label for="password"
                             class="block text-sm font-medium leading-6 text-black md:text-base">Password</label>
                         <div class="mt-2">
-                            <input type="password" name="password" id="password" required
+                            <input type="password" name="password" id="password" autocomplete="off" required
                                 class="block w-full cursor-text rounded-md border border-amber-300 px-4 py-1.5 text-sm text-black hover:border-blue-600 focus:border-blue-600 sm:leading-6 md:text-base" />
                         </div>
                     </div>
 
                     <div class="sm:col-span-2">
-                      <button type="submit" id="submit" class="block w-full text-white text-sm font-bold tracking-widest rounded-md py-3 bg-blue-600 cursor-pointer hover:text-base hover:py-2.5">LOGIN</button>
+                        <button type="submit" id="submit"
+                            class="block w-full cursor-pointer rounded-md bg-blue-600 py-3 text-sm font-bold tracking-widest text-white hover:py-2.5 hover:text-base">LOGIN</button>
                     </div>
                 </form>
             </div>
