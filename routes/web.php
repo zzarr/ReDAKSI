@@ -67,14 +67,14 @@ Route::prefix('admin')->group(function () {
 });
 
 Route::prefix('user')
-    ->middleware(['auth'])
+    /*->middleware(['admin'])*/
     ->group(function () {
         Route::get('/dashboard_user', [DashboardControler::class, 'index2'])->name('Dashboard_user');
 
-    Route::get('/soal/{id}', [JawabanController::class, 'soal']);
-    Route::get('/jawab_soal/{idp}', [JawabanController::class, 'jawabSoal']);
-    Route::post('/simpan_jawaban', [JawabanController::class, 'simpanJwb'])->name('simpan_jawaban');
-    Route::get('/jawaban/{id}', [JawabanController::class, 'show'])->name('lihat_jawaban');
+        Route::get('/soal/{id}', [JawabanController::class, 'soal']);
+        Route::get('/jawab_soal/{idp}', [JawabanController::class, 'jawabSoal']);
+        Route::post('/simpan_jawaban', [JawabanController::class, 'simpanJwb'])->name('simpan_jawaban');
+        Route::get('/jawaban/{id}', [JawabanController::class, 'show'])->name('lihat_jawaban');
 
 
         Route::get('/kesiapan_standar_akreditasi', [KesiapanAkreditasi::class, 'index'])->name('kesiapan');
