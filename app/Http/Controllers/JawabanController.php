@@ -49,4 +49,12 @@ class JawabanController extends Controller
         return redirect("/user/soal/{$request->input('id_standar')}");
 
     }
+
+    public function show($id){
+        $webtitle = 'Jawaban';
+        $jawaban = DB::table('JawabanAkreditasi')->where('id_standar', $id)->get();
+        $standar = DB::table('StandarAkreditasi')->get();
+
+        return view('user.jawaban.jawaban', compact('jawaban','webtitle','standar'));
+    }
 }

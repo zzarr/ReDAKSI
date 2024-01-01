@@ -17,13 +17,22 @@ class KesiapanAkreditasi extends Controller
             $skorTertimbangTotal += ($item->skorPerolehan * $item->jumlahBobotButir);
         }
 
-       
+    
 
         $NA = ($skorTertimbangTotal / 400)*100;
-        
+        $index = '';
+        if($NA>=80){
+            $index = 'A';
+        }
+        elseif($NA>=60 && $NA<80){
+            $index = 'B';
+        }
+        elseif($NA<60){
+            $index = 'C';
+        }
 
         
-        return view("user.Kesiapan.kesiapan", compact("standar","webtitle", "skorTertimbangTotal", "NA"));
+        return view("user.Kesiapan.kesiapan", compact("standar","webtitle", "skorTertimbangTotal", "NA","index"));
 
     }
 }

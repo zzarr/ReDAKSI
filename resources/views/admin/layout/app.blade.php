@@ -8,7 +8,7 @@
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('DataTables-1.13.4/css/jquery.dataTables.min.css') }}">
-    
+
     @vite(['resources/js/app.js'])
     <title>{{ isset($webtitle) ? $webtitle : 'ReDAKSI' }}</title>
 </head>
@@ -68,31 +68,11 @@
                             Standar Akreditasi
                         </a>
 
-                        <a class="nav-link {{ $webtitle == 'Arsip' ? 'active bg-warning' : 'btn btn-outline-warning' }} mt-2 rounded"
-                            href="{{ route('folder') }}">
-                            <div class="sb-nav-link-icon"><i class="fa-solid fa-folder"></i></div>
-                            Arsip
-                        </a>
-                        <hr class="my-4">
-
-                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
-                            data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
-                            <div class="sb-nav-link-icon"><i class="fa-solid fa-folder-tree"></i></div>
-                            Arsip
-                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                        </a>
-                        <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne"
-                            data-bs-parent="#sidenavAccordion">
-                            <nav class="sb-sidenav-menu-nested nav">
-                                <p>ahdshdj</p>
-
-                            </nav>
-                        </div>
+                        < </div>
                     </div>
-                </div>
-                <div class="sb-sidenav-footer">
+                    <div class="sb-sidenav-footer">
 
-                </div>
+                    </div>
             </nav>
         </div>
         <div id="layoutSidenav_content">
@@ -101,7 +81,7 @@
 
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.js"
             crossorigin="anonymous"></script>
-        
+
         <script src="{{ asset('js/script.js') }}"></script>
 </body>
 
