@@ -10,7 +10,8 @@ class JawabanController extends Controller
         $webtitle = 'Soal';
         $soal = DB::table('SoalAkreditasi')->where('id_standar', $id)->get();
         $standar = DB::table('StandarAkreditasi')->get();
-        return view('user.soal.soal', compact('webtitle','soal','standar'));
+        $judul =  DB::table('StandarAkreditasi')->where('id',$id)->first(['nm_standar']);
+        return view('user.soal.soal', compact('webtitle','soal','standar','judul'));
     }
 
     public function jawabSoal($idp){
@@ -54,7 +55,7 @@ class JawabanController extends Controller
         $webtitle = 'Jawaban';
         $jawaban = DB::table('JawabanAkreditasi')->where('id_standar', $id)->get();
         $standar = DB::table('StandarAkreditasi')->get();
-
-        return view('user.jawaban.jawaban', compact('jawaban','webtitle','standar'));
+        $judul = DB::table('StandarAkreditasi')->where('id', $id)->first(['nm_standar']);
+        return view('user.jawaban.jawaban', compact('jawaban','webtitle','standar','judul'));
     }
 }

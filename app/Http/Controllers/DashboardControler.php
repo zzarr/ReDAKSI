@@ -12,7 +12,9 @@ class DashboardControler extends Controller
         $this->middleware('auth');
         $webtitle = 'Dashboard';
         $arsip = DB::table('folders')->get();
-        return view('admin.dashboard', compact('arsip', 'webtitle'));
+        $akun = DB::table('users')->count();
+        $standar = DB::table('StandarAkreditasi')->count();
+        return view('admin.dashboard', compact('arsip', 'webtitle','akun', 'standar'));
     }
 
     public function index2()
@@ -20,7 +22,10 @@ class DashboardControler extends Controller
         $this->middleware('auth');
         $webtitle = 'Dashboard';
         $standar = DB::table('StandarAkreditasi')->get();
-        return view('user.dashboard', compact('webtitle', 'standar'));
+        $jmlsoal = DB::table('SoalAkreditasi')->count();
+        $jmljwb = DB::table('JawabanAkreditasi')->count();
+        $kesiapan = ($jmljwb/$jmlsoal)*100;
+        return view('user.dashboard', compact('webtitle', 'standar','kesiapan'));
     }
 
     public function index3(){

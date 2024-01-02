@@ -2,7 +2,7 @@
 @section('content')
     <main class="m-4">
         <div class="container-fluid">
-            <h4 class="mb-3">Jawaban Standar Akreditasi</h4>
+            <h4 class="mb-3">Jawaban Standar Akreditasi: {{ $judul->nm_standar }}</h4>
             <ol class="breadcrumb mb-4">
                 <li class="breadcrumb-item"><a href="/admin/">Dashboard</a></li>
                 <li class="breadcrumb-item active">Jawaban</li>
