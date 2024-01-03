@@ -28,7 +28,7 @@ Route::get('/login', [loginController::class, 'login'])->name('login');
 Route::post('/login_proses', [loginController::class, 'getData_login'])->name('login_proses');
 
 Route::prefix('admin')->group(function () {
-    /*Route::middleware('admin')->group(function () {*/
+    Route::middleware('admin')->group(function () {
         Route::get('/dashboard_admin', [DashboardControler::class, 'index'])->name('DashboardAdmin');
 
         Route::resource('jabatan', JabatanController::class);
@@ -39,9 +39,6 @@ Route::prefix('admin')->group(function () {
         Route::get('/update_account/{iduser}', [accountController::class, 'update'])->name('update_account');
         Route::post('/update_account/{iduser}', [accountController::class, 'updateData'])->name('updateaccount');
         Route::delete('/delete_account/{iduser}', [accountController::class, 'delete'])->name('delete_account');
-
-        /*Route::get('/update_account', [accountController::class, 'update'])->name('update_account');
-         Route::post('/update_account', [accountController::class, 'updateData'])->name('update_account');*/
 
         Route::get('/folder', [ArsipController::class, 'index'])->name('folder');
         Route::get('/add_folder', [ArsipController::class, 'add_arsip'])->name('add_folder');
@@ -63,25 +60,22 @@ Route::prefix('admin')->group(function () {
         Route::get('/edit_soal/{idp}/{id}', [SoalController::class, 'edit'])->name('edit_soal');
         Route::post('/update_soal/{idp}', [SoalController::class, 'update'])->name('update_soal');
         Route::get('/hapus_soal/{idp}/{id}', [SoalController::class, 'delete'])->name('hapus_soal');
-    //});
+    });
 });
 
-Route::prefix('user')
-    /*->middleware(['admin'])*/
-    ->group(function () {
-        Route::get('/dashboard_user', [DashboardControler::class, 'index2'])->name('Dashboard_user');
+Route::prefix('koordinator_guru')->group(function () {
+    Route::middleware('koordinator_guru')->group(function () {
+        Route::get('/dashboard_KoordinatorGuru', [DashboardControler::class, 'index2'])->name('DashboardKoordinator');
 
         Route::get('/soal/{id}', [JawabanController::class, 'soal']);
         Route::get('/jawab_soal/{idp}', [JawabanController::class, 'jawabSoal']);
         Route::post('/simpan_jawaban', [JawabanController::class, 'simpanJwb'])->name('simpan_jawaban');
         Route::get('/jawaban/{id}', [JawabanController::class, 'show'])->name('lihat_jawaban');
 
-
         Route::get('/kesiapan_standar_akreditasi', [KesiapanAkreditasi::class, 'index'])->name('kesiapan');
     });
+});
 
-    
-
-Route::prefix('guru')->group(function(){
-    Route:: get('dashboard_guru',[DashboardControler::class, 'index3'])->name('dashboard_guru');
+Route::prefix('guru')->group(function () {
+    Route::get('dashboard_guru', [DashboardControler::class, 'index3'])->name('DashboardGuru');
 });

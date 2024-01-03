@@ -62,7 +62,8 @@
                                 <label for="level">Level user</label>
                                 <select class="form-select" aria-label="Default select example" name="leveluser">
                                     <option value="admin">Admin</option>
-                                    <option value="user">User</option>
+                                    <option value="koordinator_guru">koordinator_guru</option>
+                                    <option value="guru">guru</option>
                                 </select>
                             </div>
                             <div class="col-12">

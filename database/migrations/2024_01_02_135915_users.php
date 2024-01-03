@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
@@ -17,9 +16,12 @@ return new class extends Migration
             $table->string('username');
             $table->string('email')->nullable();
             $table->string('password');
-            $table->enum('leveluser', ['admin', 'user']);
+            $table->enum('leveluser', ['admin', 'Koordinator_guru', 'guru']);
             $table->unsignedBigInteger('id_jabatan');
-            $table->foreign('id_jabatan')->references('id')->on('jabatan');
+            $table
+                ->foreign('id_jabatan')
+                ->references('id')
+                ->on('jabatan');
             $table->timestamps();
         });
     }

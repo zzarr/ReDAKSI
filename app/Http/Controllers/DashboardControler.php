@@ -20,11 +20,12 @@ class DashboardControler extends Controller
         $this->middleware('auth');
         $webtitle = 'Dashboard';
         $standar = DB::table('StandarAkreditasi')->get();
-        return view('user.dashboard', compact('webtitle', 'standar'));
+        return view('koordinator_dashboard.dashboard', compact('webtitle', 'standar'));
     }
 
-    public function index3(){
+    public function index3()
+    {
         $webtitle = 'Dashboard';
-        return view('guru.dashboar', compact('webtitle'));
+        return view('guru.dashboard', compact('webtitle'));
     }
 }

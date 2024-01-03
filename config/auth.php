@@ -35,13 +35,17 @@ return [
     */
 
     'guards' => [
-        'user' => [
-            'driver' => 'session',
-            'provider' => 'user',
-        ],
         'admin' => [
             'driver' => 'session',
             'provider' => 'admin',
+        ],
+        'koordinator_guru' => [
+            'driver' => 'session',
+            'provider' => 'koordinator_guru',
+        ],
+        'guru' => [
+            'driver' => 'session',
+            'provider' => 'guru',
         ],
     ],
 
@@ -71,8 +75,11 @@ return [
             'driver' => 'database',
             'table' => 'users',
         ],
-
-        'user' => [
+        'koordinator_guru' => [
+            'driver' => 'database',
+            'table' => 'users',
+        ],
+        'guru' => [
             'driver' => 'database',
             'table' => 'users',
         ],
