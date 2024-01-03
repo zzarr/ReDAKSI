@@ -3,14 +3,22 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
-class filearsipController extends Controller
+use Illuminate\Support\Facades\DB;
+class fileController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
+        $get_file = DB::table('filearsip')
+            ->leftJoin('standarakreditasi', 'id_standar', '=', 'standarakreditasi.id')
+            //->leftJoin('soalakreditasi', 'id_soal', '=', 'filearsip.id_soal')
+            ->select('filearsip.*', 'standarakreditasi.nm_standar as standarakreditasi')
+            //->select('filearsip.*', 'standarakreditasi.nm_standar as standarakreditas', 'soalakreditasi.pertanyaan as soalakreditasi')
+            ->get();
+        $webtitle = 'ReDAKSI | File Arsip';
+        return view('guru.file', compact('webtitle', 'get_file'));
     }
 
     /**
@@ -18,7 +26,10 @@ class filearsipController extends Controller
      */
     public function create()
     {
-        //
+        $webtitle = 'ReDAKSI | File Arsip';
+        $standar = DB::table('standarakreditasi')->get();
+        //$soal = DB::table('soalakreditasi')->get();
+        return view('guru.add_file', compact('webtitle', 'standar'));
     }
 
     /**
@@ -26,7 +37,28 @@ class filearsipController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'standar' => 'required',
+            'file-upload' => 'required|mimes:docx,pdf,xlsx|max:1024',
+        ]);
+
+        $file = $request->file('file-upload');
+
+        // Mendapatkan nama dan ekstensi file
+        $namaFile = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
+        $jenisFile = $file->getClientOriginalExtension();
+
+        DB::table('filearsip')->insert([
+            'id_standar' => $request->input('standar'),
+            'nama_file' => $namaFile,
+            'jenis_file' => $jenisFile,
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        return redirect('guru/file')
+            ->withInput()
+            ->with('success', 'Akun berhasil ditambahkan.');
     }
 
     /**

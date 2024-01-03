@@ -11,32 +11,31 @@ class ArsipController extends Controller
      */
     public function index()
     {
-        $webtitle = "Arsip";
+        $webtitle = 'Arsip';
         $arsip = DB::table('folders')->get();
         $folders = DB::table('folders')
-                    ->leftJoin('jabatan', 'folders.hak_akses', '=', 'jabatan.id')
-                    ->select('folders.*', 'jabatan.jabatan as jabatan') // Adjust the column names accordingly
-                    ->get();
-
-
-        return view('admin.arsip', compact('folders', 'webtitle','arsip'));
+            ->leftJoin('jabatan', 'folders.hak_akses', '=', 'jabatan.id')
+            ->select('folders.*', 'jabatan.jabatan as jabatan') // Adjust the column names accordingly
+            ->get();
+        return view('admin.arsip', compact('folders', 'webtitle', 'arsip'));
     }
 
     public function add_arsip()
     {
-        $webtitle = "Arsip";
+        $webtitle = 'Arsip';
         $arsip = DB::table('folders')->get();
         $jabatan = DB::table('jabatan')->get();
-        return view('admin.add_folder', compact('jabatan','arsip','webtitle'));
+        return view('admin.add_folder', compact('jabatan', 'arsip', 'webtitle'));
     }
 
-    public function tambah_arsip(Request $request){
+    public function tambah_arsip(Request $request)
+    {
         DB::table('folders')->insert([
-            'id' => rand(1,100000000),
+            'id' => rand(1, 100000000),
             'nama_folder' => $request->input('arsip'),
             'hak_Akses' => $request->input('hak_akses'),
             'created_at' => now(),
-            'updated_at' => now()
+            'updated_at' => now(),
         ]);
 
         return redirect()->route('folder');
@@ -45,30 +44,35 @@ class ArsipController extends Controller
     // method untuk edit data pegawai
     public function edit($id)
     {
-        $webtitle = "Arsip";
+        $webtitle = 'Arsip';
         $arsip = DB::table('folders')->get();
         $jabatan = DB::table('jabatan')->get();
         // mengambil data pegawai berdasarkan id yang dipilih
-        $folders = DB::table('folders')->where('id',$id)->get();
+        $folders = DB::table('folders')
+            ->where('id', $id)
+            ->get();
         // passing data pegawai yang didapat ke view edit.blade.php
-        return view('admin.edit_folder',compact('folders','webtitle','arsip','jabatan'));
+        return view('admin.edit_folder', compact('folders', 'webtitle', 'arsip', 'jabatan'));
     }
 
-    public function update(Request $request, string $id){
-        DB::table('folders')->where('id', $id)->update([
-            'nama_folder' => $request->input('arsip'),
-            'hak_akses' => $request->input('hak_akses'),
-            'updated_at' => now()
-        ]);
+    public function update(Request $request, string $id)
+    {
+        DB::table('folders')
+            ->where('id', $id)
+            ->update([
+                'nama_folder' => $request->input('arsip'),
+                'hak_akses' => $request->input('hak_akses'),
+                'updated_at' => now(),
+            ]);
 
         return redirect()->route('folder');
-                        
-
     }
 
-    public function hapus_arsip($id){
-       
-        DB::table('folders')->where('id', $id)->delete();
+    public function hapus_arsip($id)
+    {
+        DB::table('folders')
+            ->where('id', $id)
+            ->delete();
         return redirect()->route('folder');
     }
 }

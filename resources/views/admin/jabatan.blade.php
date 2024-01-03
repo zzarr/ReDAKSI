@@ -10,12 +10,8 @@
             </ol>
             <div class="card mb-4">
                 <div class="card-body">
-
                     <a type="button" href="{{ url('admin/jabatan/create') }}" class="btn btn-outline-primary"><i
                             class="fa-solid fa-square-plus"></i></a>
-
-
-
                 </div>
             </div>
             <div class="card">
@@ -52,7 +48,8 @@
                                                     class="fa-solid fa-trash"></i></button>
 
                                         </form>
-                                        <a type="button" class="btn btn-primary" href="/admin/jabatan/{{ $item->id }}/edit"><i
+                                        <a type="button" class="btn btn-primary"
+                                            href="/admin/jabatan/{{ $item->id }}/edit"><i
                                                 class="fa-solid fa-pen-to-square"></i></a>
                                         <a type="button" href=""></a>
                                     </td>

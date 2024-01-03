@@ -9,6 +9,7 @@ use App\Http\Controllers\StandarController;
 use App\Http\Controllers\SoalController;
 use App\Http\Controllers\JawabanController;
 use App\Http\Controllers\KesiapanAkreditasi;
+use App\Http\Controllers\fileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -77,5 +78,6 @@ Route::prefix('koordinator_guru')->group(function () {
 });
 
 Route::prefix('guru')->group(function () {
-    Route::get('dashboard_guru', [DashboardControler::class, 'index3'])->name('DashboardGuru');
+    Route::get('/dashboard_guru', [DashboardControler::class, 'index3'])->name('DashboardGuru');
+    Route::resource('file', fileController::class);
 });
