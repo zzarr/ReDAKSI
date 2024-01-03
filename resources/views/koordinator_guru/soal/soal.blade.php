@@ -1,16 +1,16 @@
 @extends('user.layout.app')
 @section('content')
-<main class="m-4">
-    <div class="container-fluid">
-        <h4 class="mb-3">Soal</h4>
+    <main class="m-4">
+        <div class="container-fluid">
+            <h4 class="mb-3">Soal {{ $judul->nm_standar }}</h4>
             <ol class="breadcrumb mb-4">
                 <li class="breadcrumb-item"><a href="/admin/">Dashboard</a></li>
                 <li class="breadcrumb-item"><a href="{{ route('standar') }}">Standar Akreditasi</a> </li>
-                <li class="breadcrumb-item active"></li>
+                <li class="breadcrumb-item active">Soal {{ $judul->nm_standar }}</li>
             </ol>
             <div class="card">
                 <div class="card-header">
-                    
+
                 </div>
                 <div class="card-body">
                     <table id="datatablesSimple">
@@ -35,11 +35,10 @@
                                     <td>{{ $item->pertanyaan }}</td>
                                     <td>
                                         @if (@isset($item->pertanyaan))
-                                            
-                                        <a href="/user/jawab_soal/{{ $item->idp }}" class="btn btn-secondary">Jawab</a>
-                                            
+                                            <a href="/user/jawab_soal/{{ $item->idp }}"
+                                                class="btn btn-secondary">Jawab</a>
                                         @endif
-                                        
+
                                     </td>
                                 </tr>
                             @endforeach
@@ -47,7 +46,6 @@
                     </table>
                 </div>
             </div>
-    </div>
-</main>
-    
+        </div>
+    </main>
 @endsection
