@@ -12,8 +12,13 @@ return new class extends Migration {
     {
         Schema::create('arsip', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('id_users');
+            $table
+                ->foreign('id_users')
+                ->references('id')
+                ->on('users');
             $table->string('nama_arsip');
-            $table->string('jenis_arsip');
+            $table->enum('jenis_arsip', ['RPP', 'Silabus', 'Bukti_jawaban']);
             $table->timestamps();
         });
     }

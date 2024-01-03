@@ -66,7 +66,7 @@
                             @foreach ($standar as $item)
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link"
-                                        href="/user/soal/{{ $item->id }}">{{ $item->nm_standar }}</a>
+                                        href="/koordinator_guru/soal/{{ $item->id }}">{{ $item->nm_standar }}</a>
                                 </nav>
                             @endforeach
                         </div>
@@ -83,7 +83,7 @@
                             @foreach ($standar as $item)
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link"
-                                        href="/user/jawaban/{{ $item->id }}">{{ $item->nm_standar }}</a>
+                                        href="/koordinator_guru/jawaban/{{ $item->id }}">{{ $item->nm_standar }}</a>
                                 </nav>
                             @endforeach
                         </div>

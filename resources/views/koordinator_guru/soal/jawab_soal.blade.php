@@ -1,4 +1,4 @@
-@extends('user.layout.app')
+@extends('koordinator_guru.layout.app')
 
 @section('content')
     <main class="m-4">

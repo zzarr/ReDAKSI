@@ -13,7 +13,7 @@
                     Tambah Akun
                 </div>
                 <div class="card-body">
-                    <form class="needs-validation" novalidate="" action="{{ route('add_account') }}" method="POST">
+                    <form class="needs-validation" novalidate="" action="{{ route('proses_addaccount') }}" method="POST">
                         @csrf
                         <div class="row g-3">
                             <div class="col-sm-6">
@@ -62,7 +62,7 @@
                                 <label for="level">Level user</label>
                                 <select class="form-select" aria-label="Default select example" name="leveluser">
                                     <option value="admin">Admin</option>
-                                    <option value="koordinator_guru">koordinator_guru</option>
+                                    <option value="Koordinator_guru">Koordinator_guru</option>
                                     <option value="guru">guru</option>
                                 </select>
                             </div>

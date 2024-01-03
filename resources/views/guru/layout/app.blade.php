@@ -29,7 +29,7 @@
             <button class="mr-4 ms-auto" id="sidebarToggle" href="#!">
                 <i class="fas fa-bars w-3 text-slate-400"></i>
             </button>
-            <ul class="my-auto">
+            <ul class="my-auto hidden md:flex">
                 <li class="relative my-auto">
                     <a class="my-auto" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown"
                         aria-expanded="false"><i class="fas fa-user fa-fw w-3 text-slate-400"></i>
@@ -58,7 +58,7 @@
             </ul>
         </div>
     </nav>
-    <div class="bg-dark fixed h-screen w-56">
+    <div class="bg-dark fixed hidden h-screen md:inline-block md:w-56">
         <p class="mx-auto mb-4 h-14 w-52 px-3 pb-4 pt-9 text-xs font-bold text-slate-500">CORE</p>
         <div class="mx-auto flex h-12 w-52 items-center rounded-lg bg-yellow-400">
             <a href="{{ route('DashboardGuru') }}"

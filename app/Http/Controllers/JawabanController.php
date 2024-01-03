@@ -6,23 +6,31 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 class JawabanController extends Controller
 {
-    public function soal($id){
+    public function soal($id)
+    {
         $webtitle = 'Soal';
-        $soal = DB::table('SoalAkreditasi')->where('id_standar', $id)->get();
+        $soal = DB::table('SoalAkreditasi')
+            ->where('id_standar', $id)
+            ->get();
         $standar = DB::table('StandarAkreditasi')->get();
-        $judul =  DB::table('StandarAkreditasi')->where('id',$id)->first(['nm_standar']);
-        return view('user.soal.soal', compact('webtitle','soal','standar','judul'));
+        $judul = DB::table('StandarAkreditasi')
+            ->where('id', $id)
+            ->first(['nm_standar']);
+        return view('koordinator_guru.soal.soal', compact('webtitle', 'soal', 'standar', 'judul'));
     }
 
-    public function jawabSoal($idp){
+    public function jawabSoal($idp)
+    {
         $webtitle = 'Soal';
-        $soal = DB::table('SoalAkreditasi')->where('idp', $idp)->get();
+        $soal = DB::table('SoalAkreditasi')
+            ->where('idp', $idp)
+            ->get();
         $standar = DB::table('StandarAkreditasi')->get();
-        return view('user.soal.jawab_soal', compact('webtitle', 'soal','standar'));
+        return view('koordinator_guru.soal.jawab_soal', compact('webtitle', 'soal', 'standar'));
     }
 
-
-    public function simpanJwb(Request $request){
+    public function simpanJwb(Request $request)
+    {
         $jwbNscore = explode('|', $request->input('jawaban'));
         $jawaban = $jwbNscore[0];
         $score = $jwbNscore[1];
@@ -31,31 +39,37 @@ class JawabanController extends Controller
             'id_pertanyaan' => $request->input('id_pertanyaan'),
             'id_standar' => $request->input('id_standar'),
             'jawaban' => $jawaban,
-            'score' => $score 
+            'score' => $score,
         ]);
 
         $skorperolehan = DB::table('JawabanAkreditasi')
-                            ->where('id_standar',$request->input('id_standar'))
-                            ->sum('score');
-        
+            ->where('id_standar', $request->input('id_standar'))
+            ->sum('score');
+
         $bobotbtr = DB::table('StandarAkreditasi')
-                 ->where('id',$request->input('id_standar'))
-                 ->first(['jumlahBobotButir']);
+            ->where('id', $request->input('id_standar'))
+            ->first(['jumlahBobotButir']);
 
-        DB::table('StandarAkreditasi')->where('id',$request->input('id_standar'))->update([
-            'skorPerolehan' => $skorperolehan,
-            'nilaiPerStandar' => $skorperolehan * $bobotbtr->jumlahBobotButir
-        ]);
+        DB::table('StandarAkreditasi')
+            ->where('id', $request->input('id_standar'))
+            ->update([
+                'skorPerolehan' => $skorperolehan,
+                'nilaiPerStandar' => $skorperolehan * $bobotbtr->jumlahBobotButir,
+            ]);
 
-        return redirect("/user/soal/{$request->input('id_standar')}");
-
+        return redirect("/koordinator_guru/soal/{$request->input('id_standar')}");
     }
 
-    public function show($id){
+    public function show($id)
+    {
         $webtitle = 'Jawaban';
-        $jawaban = DB::table('JawabanAkreditasi')->where('id_standar', $id)->get();
+        $jawaban = DB::table('JawabanAkreditasi')
+            ->where('id_standar', $id)
+            ->get();
         $standar = DB::table('StandarAkreditasi')->get();
-        $judul = DB::table('StandarAkreditasi')->where('id', $id)->first(['nm_standar']);
-        return view('user.jawaban.jawaban', compact('jawaban','webtitle','standar','judul'));
+        $judul = DB::table('StandarAkreditasi')
+            ->where('id', $id)
+            ->first(['nm_standar']);
+        return view('koordinator_guru.jawaban.jawaban', compact('jawaban', 'webtitle', 'standar', 'judul'));
     }
 }

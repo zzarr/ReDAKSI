@@ -18,7 +18,7 @@ class accountController extends Controller
             ->leftJoin('jabatan', 'id_jabatan', '=', 'jabatan.id')
             ->select('users.*', 'jabatan') // Adjust the column names accordingly
             ->get();
-        $webtitle = 'Accoun';
+        $webtitle = 'Account';
         $arsip = DB::table('folders')->get();
         return view('admin.account', compact('akun', 'webtitle', 'arsip'));
     }
@@ -36,7 +36,9 @@ class accountController extends Controller
         $webtitle = 'update_Account';
         $jabatan = DB::table('jabatan')->get();
         $arsip = DB::table('folders')->get();
-        $akun = DB::table('users')->where('id', $iduser)->first();
+        $akun = DB::table('users')
+            ->where('id', $iduser)
+            ->first();
         return view('admin.update_account', compact('jabatan', 'webtitle', 'arsip', 'akun'));
     }
 
@@ -48,7 +50,7 @@ class accountController extends Controller
             'username' => 'required|string|max:255',
             'email' => 'nullable|email|max:255',
             'password' => 'required|string|min:8',
-            'leveluser' => 'required|in:admin,user',
+            'leveluser' => 'required|in:admin,Koordinator_guru,guru',
             'jabatan' => 'required',
         ]);
 
@@ -67,7 +69,10 @@ class accountController extends Controller
             'updated_at' => now(),
         ]);
 
-        return redirect()->route('account')->withInput()->with('success', 'Akun berhasil ditambahkan.');
+        return redirect()
+            ->route('account')
+            ->withInput()
+            ->with('success', 'Akun berhasil ditambahkan.');
     }
 
     public function updateData(Request $request)
@@ -77,28 +82,37 @@ class accountController extends Controller
             'username' => 'nullable|string|max:255',
             'email' => 'nullable|email|max:255',
             'password' => 'nullable|string|min:8',
-            'leveluser' => 'nullable|in:admin,user',
+            'leveluser' => 'nullable|in:admin,Koordinator_guru,guru',
             'jabatan' => 'nullable',
         ]);
 
         // Menggunakan Query Builder untuk mengupdate data ke database
-        DB::table('users')->where('id', $request->id)->update([
-            'username' => $request->input('username'),
-            'email' => $request->input('email'),
-            'password' => bcrypt($request->input('password')),
-            'leveluser' => $request->input('leveluser'),
-            'id_jabatan' => $request->input('jabatan'),
-            'updated_at' => now(),
-        ]);
+        DB::table('users')
+            ->where('id', $request->id)
+            ->update([
+                'username' => $request->input('username'),
+                'email' => $request->input('email'),
+                'password' => bcrypt($request->input('password')),
+                'leveluser' => $request->input('leveluser'),
+                'id_jabatan' => $request->input('jabatan'),
+                'updated_at' => now(),
+            ]);
 
-        return redirect()->route('account')->withInput()->with('success', 'Akun berhasil diupdate.');
+        return redirect()
+            ->route('account')
+            ->withInput()
+            ->with('success', 'Akun berhasil diupdate.');
     }
 
     public function delete($iduser)
     {
         // Lakukan operasi delete data pengguna berdasarkan ID
-        DB::table('users')->where('id', $iduser)->delete();
+        DB::table('users')
+            ->where('id', $iduser)
+            ->delete();
 
-        return redirect()->route('account')->with('success', 'Akun berhasil dihapus.');
+        return redirect()
+            ->route('account')
+            ->with('success', 'Akun berhasil dihapus.');
     }
 }

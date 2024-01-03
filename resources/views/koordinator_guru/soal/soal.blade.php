@@ -1,4 +1,4 @@
-@extends('user.layout.app')
+@extends('koordinator_guru.layout.app')
 @section('content')
     <main class="m-4">
         <div class="container-fluid">
@@ -35,7 +35,7 @@
                                     <td>{{ $item->pertanyaan }}</td>
                                     <td>
                                         @if (@isset($item->pertanyaan))
-                                            <a href="/user/jawab_soal/{{ $item->idp }}"
+                                            <a href="/koordinator_guru/jawab_soal/{{ $item->idp }}"
                                                 class="btn btn-secondary">Jawab</a>
                                         @endif
 

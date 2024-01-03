@@ -48,7 +48,7 @@ class loginController extends Controller
                             ->route('DashboardAdmin')
                             ->withInput();
                     }
-                } elseif ($userData->leveluser == 'koordinator_guru') {
+                } elseif ($userData->leveluser == 'Koordinator_guru') {
                     if (Auth::guard('koordinator_guru')->attempt(['username' => $userData->username, 'password' => $credentials['password']])) {
                         // Mengatur sesi pengguna dengan level 'user'
                         $request->session()->put('koordinator_guru', ['id' => $userData->id, 'expires_at' => now()->addDay()]);

@@ -2,7 +2,7 @@
 
 @section('content')
     <main>
-        <div class="container ml-auto mr-10 md:w-4/5">
+        <div class="container relative ml-auto w-4/5 md:mr-10">
             <h1 class="mt-4 text-4xl">Dashboard</h1>
             <ol class="mb-4 mt-2">
                 <li class="text-slate-500">Dashboard</li>
@@ -22,6 +22,7 @@
                             <tr>
                                 <th>Nama File</th>
                                 <th>Jenis File</th>
+                                <th>Kategori File</th>
                                 <th>Dibuat</th>
                                 <th>Diupdate</th>
                                 <th>Ubah</th>
@@ -31,12 +32,14 @@
                             <tr>
                                 <th>Nama File</th>
                                 <th>Jenis File</th>
+                                <th>Kategori File</th>
                                 <th>Dibuat</th>
                                 <th>Diupdate</th>
                                 <th>Ubah</th>
                             </tr>
                         </tfoot>
                         <tbody>
+                            <td></td>
                             <td></td>
                             <td></td>
                             <td></td>

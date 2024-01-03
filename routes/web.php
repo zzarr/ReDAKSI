@@ -35,7 +35,7 @@ Route::prefix('admin')->group(function () {
 
         Route::get('/account', [accountController::class, 'index'])->name('account');
         Route::get('/add_account', [accountController::class, 'create'])->name('add_account');
-        Route::post('/add_account', [accountController::class, 'addData'])->name('padd_account');
+        Route::post('/add_account', [accountController::class, 'addData'])->name('proses_addaccount');
         Route::get('/update_account/{iduser}', [accountController::class, 'update'])->name('update_account');
         Route::post('/update_account/{iduser}', [accountController::class, 'updateData'])->name('updateaccount');
         Route::delete('/delete_account/{iduser}', [accountController::class, 'delete'])->name('delete_account');
