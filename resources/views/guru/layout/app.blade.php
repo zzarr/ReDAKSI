@@ -12,7 +12,7 @@
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
 
-
+    @stack('external-scripts')
 
     <title>{{ isset($webtitle) ? $webtitle : 'ReDAKSI' }}</title>
 </head>
@@ -79,7 +79,6 @@
         crossorigin="anonymous"></script>
 
     <script src="{{ asset('js/script.js') }}"></script>
-    <script src="{{ asset('js/DDfile.js') }}" defer></script>
 </body>
 
 </html>

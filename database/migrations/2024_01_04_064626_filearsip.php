@@ -13,7 +13,11 @@ return new class extends Migration {
         Schema::create('filearsip', function (Blueprint $table) {
             $table->id();
             $table->string('nama_file');
-            $table->string('jenis_file');
+            $table->unsignedBigInteger('id_format');
+            $table
+                ->foreign('id_format')
+                ->references('id')
+                ->on('formatfile');
             $table->unsignedBigInteger('id_standar');
             $table
                 ->foreign('id_standar')

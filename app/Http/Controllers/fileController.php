@@ -12,13 +12,14 @@ class fileController extends Controller
     public function index()
     {
         $get_file = DB::table('filearsip')
+            ->leftJoin('formatfile', 'id_format', '=', 'formatfile.id')
             ->leftJoin('standarakreditasi', 'id_standar', '=', 'standarakreditasi.id')
-            //->leftJoin('soalakreditasi', 'id_soal', '=', 'filearsip.id_soal')
-            ->select('filearsip.*', 'standarakreditasi.nm_standar as standarakreditasi')
+            ->select('filearsip.*', 'formatfile.jenis_file as formatfile', 'standarakreditasi.nm_standar as standarakreditasi')
             //->select('filearsip.*', 'standarakreditasi.nm_standar as standarakreditas', 'soalakreditasi.pertanyaan as soalakreditasi')
             ->get();
+        $format = DB::table('standarakreditasi')->get();
         $webtitle = 'ReDAKSI | File Arsip';
-        return view('guru.file', compact('webtitle', 'get_file'));
+        return view('guru.file', compact('webtitle', 'get_file', 'format'));
     }
 
     /**
@@ -48,10 +49,14 @@ class fileController extends Controller
         $namaFile = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
         $jenisFile = $file->getClientOriginalExtension();
 
+        $format = DB::table('formatfile')
+            ->where('jenis_file', $jenisFile)
+            ->value('id');
+
         DB::table('filearsip')->insert([
             'id_standar' => $request->input('standar'),
             'nama_file' => $namaFile,
-            'jenis_file' => $jenisFile,
+            'id_format' => $format,
             'created_at' => now(),
             'updated_at' => now(),
         ]);

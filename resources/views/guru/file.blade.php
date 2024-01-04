@@ -14,11 +14,11 @@
                     <i class="fas fa-table me-1"></i>
                     Arsip File
                 </div>
-                <a href="{{ url('guru/file/create') }}">
-                    <div class="box mb-2 ml-3 mt-4 flex h-10 w-32 items-center rounded-full bg-white drop-shadow-md">
-                        <i class="fa-solid fa-file-circle-plus mx-3 h-5 w-5 text-black"></i>
-                        <p class="text-sm font-bold text-black">Add File</p>
-                    </div>
+                <a href="{{ url('guru/file/create') }}"
+                    class="box mb-2 ml-3 mt-4 flex h-10 w-32 items-center rounded-full bg-white drop-shadow-md">
+
+                    <i class="fa-solid fa-file-circle-plus mx-3 h-5 w-5 text-black"></i>
+                    <p class="text-sm font-bold text-black">Add File</p>
                 </a>
                 <div class="card-body">
                     <table id="datatablesSimple">
@@ -26,7 +26,14 @@
                             <tr>
                                 <th>Nama File</th>
                                 <th>Jenis File</th>
-                                <th>Kategori Standar</th>
+                                <th><select id="jenis-file-dropdown">
+                                        <option value="" selected disabled class="border-b-4 border-black">Standar
+                                            Akreditasi
+                                        </option>
+                                        @foreach ($format as $jenis)
+                                            <option value="{{ $jenis->id }}">{{ $jenis->nm_standar }}</option>
+                                        @endforeach
+                                    </select></th>
                                 <th>Dibuat</th>
                                 <th>Diupdate</th>
                                 <th>Ubah</th>
@@ -46,7 +53,7 @@
                             @foreach ($get_file as $item)
                                 <tr>
                                     <td>{{ $item->nama_file }}</td>
-                                    <td>{{ $item->jenis_file }}</td>
+                                    <td>{{ $item->formatfile }}</td>
                                     <td>{{ $item->standarakreditasi }}</td>
                                     <td>{{ $item->created_at }}</td>
                                     <td>{{ $item->updated_at }}</td>
@@ -71,3 +78,7 @@
         </div>
     </main>
 @endsection
+
+@push('external-scripts')
+    <script src="{{ asset('js/formatfile.js') }}" defer></script>
+@endpush

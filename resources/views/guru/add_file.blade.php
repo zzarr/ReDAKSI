@@ -2,7 +2,7 @@
 
 @section('content')
     <main>
-        <div class="container relative ml-auto w-4/5 md:mr-10">
+        <div class="container fixed right-0 ml-auto h-full w-4/5 overflow-y-auto">
             <h1 class="mt-4 text-4xl">Dashboard</h1>
             <ol class="mb-8 mt-2 flex items-center space-x-1">
                 <li class="text-sky-400"><a href="{{ url('guru/dashboard_guru') }}">Dashboard</a></li>
@@ -11,7 +11,7 @@
                 <li class="text-slate-500">/</li>
                 <li class="text-slate-500">Add File</li>
             </ol>
-            <div class="card h-110 mx-auto w-1/2 rounded-xl bg-white p-16 drop-shadow-lg">
+            <div class="card md:h-110 mx-auto w-1/2 rounded-xl bg-white p-16 drop-shadow-lg">
                 <form action="{{ url('guru/file/') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="mb-2 md:col-span-2">
@@ -63,3 +63,7 @@
         </div>
     </main>
 @endsection
+
+@push('external-scripts')
+    <script src="{{ asset('js/DDfile.js') }}" defer></script>
+@endpush
