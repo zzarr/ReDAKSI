@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 class fileController extends Controller
 {
     /**
@@ -52,6 +53,8 @@ class fileController extends Controller
         $format = DB::table('formatfile')
             ->where('jenis_file', $jenisFile)
             ->value('id');
+
+        Storage::disk('public')->put('filearsip/' . $namaFile . '.' . $jenisFile, file_get_contents($file));
 
         DB::table('filearsip')->insert([
             'id_standar' => $request->input('standar'),

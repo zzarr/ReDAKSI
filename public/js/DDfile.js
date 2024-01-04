@@ -53,7 +53,9 @@ function handleFiles(files) {
         } else {
             // Ekstensi file tidak diizinkan, reset nama file
             resetFileName();
-            alert("File type not allowed. Please upload a DOCX or PDF file.");
+            alert(
+                "File type not allowed. Please upload a DOCX, PDF, OR XLSX file."
+            );
         }
     } else {
         resetFileName();
