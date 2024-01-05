@@ -120,13 +120,24 @@ class fileController extends Controller
                 ->value('id');
 
             Storage::disk('public')->put('filearsip/' . $namaFile . '.' . $jenisFile, file_get_contents($file));
-            DB::table('filearsip')
-                ->where('id', $id)
-                ->update([
-                    'nama_file' => $namaFile,
-                    'id_format' => $format,
-                    'updated_at' => now(),
-                ]);
+            if ($request->filled('standar')) {
+                DB::table('filearsip')
+                    ->where('id', $id)
+                    ->update([
+                        'id_standar' => $request->input('standar'),
+                        'nama_file' => $namaFile,
+                        'id_format' => $format,
+                        'updated_at' => now(),
+                    ]);
+            } else {
+                DB::table('filearsip')
+                    ->where('id', $id)
+                    ->update([
+                        'nama_file' => $namaFile,
+                        'id_format' => $format,
+                        'updated_at' => now(),
+                    ]);
+            }
 
             return redirect('guru/file')
                 ->withInput()
