@@ -80,4 +80,5 @@ Route::prefix('koordinator_guru')->group(function () {
 Route::prefix('guru')->group(function () {
     Route::get('/dashboard_guru', [DashboardControler::class, 'index3'])->name('DashboardGuru');
     Route::resource('file', fileController::class);
+    Route::get('file/download', [fileController::class, 'download'])->name('download');
 });

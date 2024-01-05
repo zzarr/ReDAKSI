@@ -59,14 +59,24 @@
                                     <td>{{ $item->updated_at }}</td>
                                     <td>
                                         <div class="flex">
-                                            <div class="mr-4 flex h-9 w-20 rounded-lg bg-yellow-400">
-                                                <i class="fa-solid fa-file-pen my-auto ml-2 mr-2 h-7 w-7 text-black"></i>
-                                                <p class="my-auto text-sm font-bold text-black">Edit</p>
-                                            </div>
-                                            <div class="flex h-9 w-24 rounded-lg bg-red-800">
-                                                <i class="fa-solid fa-trash my-auto ml-2 mr-2 h-7 w-7 text-white"></i>
-                                                <p class="my-auto text-sm font-bold text-white">Hapus</p>
-                                            </div>
+                                            <a href="{{ route('file.edit', $item->id) }}"
+                                                class="mr-4 flex h-9 w-20 rounded-lg bg-yellow-400">
+                                                <i class="fa-solid fa-file-pen my-auto ml-2 mr-2 h-4 w-4 text-black"></i>
+                                                <p class="my-auto text-xs font-bold text-black">Edit</p>
+                                            </a>
+                                            <form action="{{ route('file.destroy', $item->id) }}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button class="mr-4 flex h-9 w-24 rounded-lg bg-red-800">
+                                                    <i class="fa-solid fa-trash my-auto ml-2 mr-2 h-4 w-4 text-white"></i>
+                                                    <p class="my-auto text-xs font-bold text-white">Hapus</p>
+                                                </button>
+                                            </form>
+                                            <a href="{{ route('download') }}"
+                                                class="mr-4 flex h-9 w-24 rounded-lg bg-sky-500">
+                                                <i class="fa-solid fa-download my-auto ml-2 mr-2 h-4 w-4 text-white"></i>
+                                                <p class="my-auto text-xs font-bold text-white">Download</p>
+                                            </a>
                                         </div>
                                     </td>
                                 </tr>

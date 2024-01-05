@@ -82,7 +82,19 @@ class fileController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $webtitle = 'ReDAKSI | File Arsip';
+        $standar = DB::table('standarakreditasi')->get();
+        //$soal = DB::table('soalakreditasi')->get();
+        $file = DB::table('filearsip')
+            ->where('id', $id)
+            ->first();
+
+        if ($file) {
+            return view('guru.edit_file', compact('webtitle', 'standar', 'file'));
+        } else {
+            // Handle jika file tidak ditemukan, misalnya dengan redirect atau menampilkan pesan
+            return redirect('guru/file');
+        }
     }
 
     /**
@@ -90,14 +102,79 @@ class fileController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'standar' => 'nullable',
+            'file-upload' => 'nullable|mimes:docx,pdf,xlsx|max:1024',
+        ]);
+
+        if ($request->hasFile('file-upload')) {
+            // Access file properties only if a file has been uploaded
+            $file = $request->file('file-upload');
+
+            // Mendapatkan nama dan ekstensi file
+            $namaFile = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
+            $jenisFile = $file->getClientOriginalExtension();
+
+            $format = DB::table('formatfile')
+                ->where('jenis_file', $jenisFile)
+                ->value('id');
+
+            Storage::disk('public')->put('filearsip/' . $namaFile . '.' . $jenisFile, file_get_contents($file));
+            DB::table('filearsip')
+                ->where('id', $id)
+                ->update([
+                    'nama_file' => $namaFile,
+                    'id_format' => $format,
+                    'updated_at' => now(),
+                ]);
+
+            return redirect('guru/file')
+                ->withInput()
+                ->with('success', 'file berhasil diupdate.');
+        } else {
+            DB::table('filearsip')
+                ->where('id', $id)
+                ->update([
+                    'id_standar' => $request->input('standar'),
+                    'updated_at' => now(),
+                ]);
+
+            return redirect('guru/file')
+                ->withInput()
+                ->with('success', 'file berhasil diupdate.');
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
+        DB::table('filearsip')
+            ->where('id', $id)
+            ->delete();
+
+        return redirect('guru/file');
+    }
+
+    public function download($id)
+    {
+        $file = DB::table('filearsip')
+            ->select('id_format')
+            ->where('id', $id)
+            ->first();
+
+        if ($file) {
+            $filePath = $file->path;
+            $name = null; // You can set a custom name if needed
+            $headers = [
+                'Content-Type' => 'application/octet-stream',
+            ];
+
+            return Storage::download($filePath, $name, $headers);
+        } else {
+            // Handle if file not found
+            return response()->json(['error' => 'File not found.'], 404);
+        }
     }
 }
