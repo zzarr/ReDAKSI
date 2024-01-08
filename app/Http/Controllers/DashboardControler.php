@@ -22,10 +22,19 @@ class DashboardControler extends Controller
         $this->middleware('auth');
         $webtitle = 'Dashboard';
         $standar = DB::table('StandarAkreditasi')->get();
+        $jmlstandar = DB::table('StandarAkreditasi')->count();
         $jmlsoal = DB::table('SoalAkreditasi')->count();
         $jmljwb = DB::table('JawabanAkreditasi')->count();
+
+        $jmldok = array();
+        $i=1;
+        while($i <= $jmlstandar ){
+             $jmldok[] = DB::table('fileArsip')->where('id_standar',$i)->count();
+             $i++;
+        }
+        
         $kesiapan = ($jmljwb / $jmlsoal) * 100;
-        return view('koordinator_guru.dashboard', compact('webtitle', 'standar', 'kesiapan'));
+        return view('koordinator_guru.dashboard', compact('webtitle', 'standar', 'kesiapan','jmldok'));
     }
 
     public function index3()

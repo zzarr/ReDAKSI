@@ -74,7 +74,14 @@ class fileController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $webtitle = "Dokumen Akreditasi";
+        $standar = DB::table('StandarAkreditasi')->get();
+        $judul = DB::table('StandarAkreditasi')
+            ->where('id', $id)
+            ->first(['nm_standar']);
+        $dokumen = DB::table('fileArsip')->where('id_standar', $id)->leftJoin('formatfile', 'id_format', '=', 'formatfile.id')->get();
+
+        return view('koordinator_guru.dokumen.dokumen', compact('webtitle','standar','dokumen','judul'));
     }
 
     /**
@@ -173,7 +180,7 @@ class fileController extends Controller
         $file = DB::table('filearsip')
             ->select('id_format')
             ->where('id', $id)
-            ->first();
+            ->get();
 
         if ($file) {
             $filePath = $file->path;
