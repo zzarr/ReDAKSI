@@ -26,8 +26,12 @@
                         <div class="card mb-4">
                             <div class="card-header">{{ $item->nm_standar }}</div>
                             <div class="card-body">
-                                <p>Skor tertimbang
+                                <p>Skor tertimbang :
                                     <b>{{ $skorTertimbang = $item->skorPerolehan * $item->jumlahBobotButir }}</b>
+                                </p>
+                                <p>
+                                    Jumlah Dokumen :
+                                    <b>{{ $jmldok[1] }}</b>
                                 </p>
                             </div>
                         </div>

@@ -67,12 +67,11 @@
                             <div class="sb-nav-link-icon"><i class="fa-solid fa-file-pen"></i></div>
                             Standar Akreditasi
                         </a>
-
-                        < </div>
                     </div>
-                    <div class="sb-sidenav-footer">
+                </div>
+                <div class="sb-sidenav-footer">
 
-                    </div>
+                </div>
             </nav>
         </div>
         <div id="layoutSidenav_content">

@@ -73,6 +73,8 @@ Route::prefix('koordinator_guru')->group(function () {
         Route::post('/simpan_jawaban', [JawabanController::class, 'simpanJwb'])->name('simpan_jawaban');
         Route::get('/jawaban/{id}', [JawabanController::class, 'show'])->name('lihat_jawaban');
 
+        Route::get('/dokumen/{id}', [fileController::class, 'show'])->name('Dokumen_akreditasi');
+
         Route::get('/kesiapan_standar_akreditasi', [KesiapanAkreditasi::class, 'index'])->name('kesiapan');
     });
 });
