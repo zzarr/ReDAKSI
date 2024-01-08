@@ -6,17 +6,18 @@
             Tambah Akun
         </div>
         <div class="card-body">
-            <form class="needs-validation" novalidate="" action="{{ route('update_account', ['iduser'=>$akun->id]) }}" method="POST">
+            <form class="needs-validation" novalidate="" action="{{ route('update_account', ['iduser' => $akun->id]) }}"
+                method="POST">
                 @csrf
-                
+
                 <div class="row g-3">
                     <input type="hidden" name="id" value="{{ $akun->id }}">
                     <div class="col-12">
                         <label for="username" class="form-label">Username</label>
                         <div class="input-group has-validation">
                             <span class="input-group-text">@</span>
-                            <input type="text" class="form-control" id="username" placeholder="Username"
-                                name="username" value="{{ $akun->username }}" required="">
+                            <input type="text" class="form-control" id="username" placeholder="Username" name="username"
+                                value="{{ $akun->username }}" required="">
                             <div class="invalid-feedback">
                                 Your username is required.
                             </div>
@@ -26,8 +27,8 @@
                     <div class="col-12">
                         <label for="email" class="form-label">Email <span
                                 class="text-body-secondary">(Optional)</span></label>
-                        <input type="email" class="form-control" id="email" placeholder="you@example.com" value="{{ $akun->email }}"
-                            name="email">
+                        <input type="email" class="form-control" id="email" placeholder="you@example.com"
+                            value="{{ $akun->email }}" name="email">
                         <div class="invalid-feedback">
                             Please enter a valid email address for shipping updates.
                         </div>
@@ -40,7 +41,8 @@
                         <label for="level">Level user</label>
                         <select class="form-select" aria-label="Default select example" name="leveluser">
                             <option value="admin">Admin</option>
-                            <option value="user">User</option>
+                            <option value="Koordinator_guru">Koordinator_guru</option>
+                            <option value="guru">guru</option>
                         </select>
                     </div>
                     <div class="col-12">
