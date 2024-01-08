@@ -55,7 +55,7 @@
                     </table>
                     <hr class="my-4">
                     <p> Hasil Akreditasi Sekolah SMP MKGR Nilai AKhir sama dengan {{ $NA }}. maka sekolah ini
-                        dinyatakan dengan predikat {{ $index }}</p>
+                        dinyatakan dengan predikat <a class="fw-bold text-dark">{{ $index }}</a></p>
                 </div>
             </div>
         </div>
